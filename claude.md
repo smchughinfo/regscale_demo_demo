@@ -4,6 +4,22 @@
 
 **RegScale Demo Demo** A demo app that uses RegScale and LangChain ...in the cloud!
 
+## Development Tools
+
+### RegScale API
+- **Swagger Documentation**: http://localhost:5000/swagger/index.html
+- **Base URL**: http://localhost:5000/
+
+### Tmux Integration
+For collaborative terminal work, use tmux sessions:
+
+**Create session**: `tmux new-session -s regscale_demo`
+**Attach to session**: `tmux attach-session -t regscale_demo`
+**Detach from session**: `Ctrl+B` then `D`
+**List sessions**: `tmux list-sessions`
+
+Tmux allows persistent terminal sessions that can be shared and resumed, perfect for ongoing development work.
+
 ## Session Memory
 
 ### Purpose

@@ -1,0 +1,1 @@
+wsl tmux attach-session -t regscale_demo

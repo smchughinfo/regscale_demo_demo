@@ -15,7 +15,7 @@ TECHNICAL PROGRESS ACHIEVED:
    - Successfully deployed RegScale standalone Docker containers
    - Configured to run on port 5000 (run_regscale.bat)
    - Created tenant and admin user
-   - Generated persistent_data directory
+   - Generated PersistentData directory
    - Initial web interface exploration revealed complexity
 
 2. MCP Server Integration (This session):
