@@ -180,7 +180,7 @@ const App = () => {
         <div className="col">
           <h1 className="h3 mb-3">
             <i className="bi bi-database-gear me-2"></i>
-            RegScale Hydrator
+            RegScale Hydrator2
           </h1>
 
           {/* Bearer Token */}
@@ -205,60 +205,61 @@ const App = () => {
               </div>
             </div>
           </div>
-
-          {/* Control Buttons */}
-          <div className="d-flex gap-2 mb-4">
-            <button
-              className="btn btn-success"
-              onClick={executeAllCalls}
-              disabled={executing}
-            >
-              {executing ? (
-                <>
-                  <span className="spinner-border spinner-border-sm me-2" />
-                  Executing...
-                </>
-              ) : (
-                <>
-                  <i className="bi bi-play-fill me-2"></i>
-                  Execute All
-                </>
-              )}
-            </button>
-
-            <button
-              className="btn btn-warning"
-              onClick={clearAllResults}
-            >
-              <i className="bi bi-eraser me-2"></i>
-              Clear Results
-            </button>
-
-            <button
-              className="btn btn-primary"
-              onClick={addNewCall}
-            >
-              <i className="bi bi-plus-circle me-2"></i>
-              Add New Call
-            </button>
-          </div>
         </div>
       </div>
 
-      {/* API Calls */}
-      <div className="row">
-        <div className="col">
-          {hydrationData?.calls?.map((call, index) => (
-            <ApiCallCard
-              key={call.id}
-              call={call}
-              index={index}
-              onUpdate={updateCall}
-              onExecute={executeCall}
-            />
-          ))}
+      {/* Utility Methods */}
+      {hydrationData?.calls?.filter(call => call.method === 'GET').length > 0 && (
+        <div className="row mb-4">
+          <div className="col">
+            <h5 className="mb-3">
+              <i className="bi bi-wrench me-2"></i>
+              Utility Methods (GET)
+            </h5>
+            {hydrationData.calls
+              .map((call, originalIndex) => ({ call, originalIndex }))
+              .filter(({ call }) => call.method === 'GET')
+              .map(({ call, originalIndex }) => (
+                <ApiCallCard
+                  key={call.id}
+                  call={call}
+                  index={originalIndex}
+                  onUpdate={updateCall}
+                  onExecute={executeCall}
+                />
+              ))}
+          </div>
+        </div>
+      )}
 
-          {(!hydrationData?.calls || hydrationData.calls.length === 0) && (
+      {/* API Calls (Creation Methods) */}
+      {hydrationData?.calls?.filter(call => call.method !== 'GET').length > 0 && (
+        <div className="row">
+          <div className="col">
+            <h5 className="mb-3">
+              <i className="bi bi-plus-square me-2"></i>
+              Creation Methods (POST/PUT/PATCH/DELETE)
+            </h5>
+            {hydrationData.calls
+              .map((call, originalIndex) => ({ call, originalIndex }))
+              .filter(({ call }) => call.method !== 'GET')
+              .map(({ call, originalIndex }) => (
+                <ApiCallCard
+                  key={call.id}
+                  call={call}
+                  index={originalIndex}
+                  onUpdate={updateCall}
+                  onExecute={executeCall}
+                />
+              ))}
+          </div>
+        </div>
+      )}
+
+      {/* Empty state */}
+      {(!hydrationData?.calls || hydrationData.calls.length === 0) && (
+        <div className="row">
+          <div className="col">
             <div className="text-center py-5">
               <i className="bi bi-inbox display-1 text-muted"></i>
               <h4 className="text-muted mt-3">No API calls defined</h4>
@@ -268,9 +269,9 @@ const App = () => {
                 Add First Call
               </button>
             </div>
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };

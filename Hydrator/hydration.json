@@ -449,7 +449,7 @@
       },
       "body": {
         "name": "Quality Assurance Department",
-        "description": "Quality management and regulatory compliance",
+        "description": "Quality management and regulatory compliance.",
         "status": "Active",
         "parentOrgId": 2
       },

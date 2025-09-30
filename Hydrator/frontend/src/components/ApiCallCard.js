@@ -69,13 +69,16 @@ const ApiCallCard = ({ call, index, onUpdate, onExecute }) => {
 
   return (
     <div className="card mb-3 api-call-card">
-      <div className="card-header d-flex justify-content-between align-items-center">
-        <div className="d-flex align-items-center">
+      <div className="card-header d-flex justify-content-between align-items-center" style={{ cursor: 'pointer' }} onClick={() => setExpanded(!expanded)}>
+        <div className="d-flex align-items-center flex-grow-1">
           <span className="badge bg-secondary me-2">#{index + 1}</span>
           <span className={`badge bg-${methodColors[call.method] || 'secondary'} me-2`}>
             {call.method}
           </span>
-          <h6 className="mb-0">{call.name}</h6>
+          <div className="d-flex flex-column">
+            <h6 className="mb-0">{call.name}</h6>
+            <small className="text-muted font-monospace">{call.url}</small>
+          </div>
           {hasResult && (
             <span className={`badge bg-${statusColors[call.statusCode] || 'secondary'} ms-2`}>
               {call.statusCode}
@@ -85,19 +88,15 @@ const ApiCallCard = ({ call, index, onUpdate, onExecute }) => {
         <div className="d-flex align-items-center gap-2">
           <button
             className="btn btn-sm btn-outline-success"
-            onClick={() => onExecute(call.id)}
+            onClick={(e) => { e.stopPropagation(); onExecute(call.id); }}
           >
             <i className="bi bi-play-fill"></i>
           </button>
-          <button
-            className="btn btn-sm btn-outline-secondary"
-            onClick={() => setExpanded(!expanded)}
-          >
-            <i className={`bi bi-chevron-${expanded ? 'up' : 'down'}`}></i>
-          </button>
+          <i className={`bi bi-chevron-${expanded ? 'up' : 'down'}`}></i>
         </div>
       </div>
 
+      {expanded && (
       <div className="card-body">
         {/* Basic Info */}
         <div className="row mb-3">
@@ -206,27 +205,28 @@ const ApiCallCard = ({ call, index, onUpdate, onExecute }) => {
             )}
           </>
         )}
-
-        {/* Results */}
-        {hasResult && (
-          <div className="mt-3">
-            <div className="d-flex justify-content-between align-items-center mb-2">
-              <label className="form-label mb-0">
-                <i className="bi bi-check-circle-fill text-success me-1"></i>
-                Response
-              </label>
-              <small className="text-muted">
-                Status: <span className={`text-${statusColors[call.statusCode] || 'secondary'}`}>
-                  {call.statusCode}
-                </span>
-              </small>
-            </div>
-            <div className="border rounded p-3 bg-light">
-              <pre className="mb-0 small">{formatJson(call.result)}</pre>
-            </div>
-          </div>
-        )}
       </div>
+      )}
+
+      {/* Results - only show when expanded */}
+      {hasResult && expanded && (
+        <div className="card-footer bg-light">
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <label className="mb-0 small">
+              <i className="bi bi-check-circle-fill text-success me-1"></i>
+              Response
+            </label>
+            <small className="text-muted">
+              Status: <span className={`text-${statusColors[call.statusCode] || 'secondary'}`}>
+                {call.statusCode}
+              </span>
+            </small>
+          </div>
+          <div className="border rounded p-3 bg-white">
+            <pre className="mb-0 small">{formatJson(call.result)}</pre>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
