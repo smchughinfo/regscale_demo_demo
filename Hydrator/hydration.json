@@ -1,0 +1,112 @@
+{
+  "bearerToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjpbInNlYW5tY2h1Z2gxIiwic2Vhbm1jaHVnaDEiXSwiaWQiOiIzZGNjYmEwOS1jZjNkLTQzMzQtYjYyMi01MmFlNjVhZGIwNjQiLCJyb2wiOiJhcGlfYWNjZXNzIiwic3ViIjoic2Vhbm1jaHVnaDEiLCJqdGkiOiJiODVhZjVlOS0zZjI3LTQ2OWEtODg4MS03YWJkNGQ4NTM2OTciLCJpYXQiOjE3NTkxMzk1ODQsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiM2RjY2JhMDktY2YzZC00MzM0LWI2MjItNTJhZTY1YWRiMDY0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9wcmltYXJ5Z3JvdXBzaWQiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYXRvciIsIm5iZiI6MTc1OTEzOTU4NCwiZXhwIjoxNzU5MjI1OTg0LCJpc3MiOiJSZWdTY2FsZSIsImF1ZCI6Imh0dHBzOi8vd3d3LnJlZ3NjYWxlLmlvLyJ9.w8TBRKl1e7ayFeLgEzGyluPEqHn1dVvkWrpEBvDh1qM",
+  "baseUrl": "http://localhost:5000",
+  "calls": [
+    {
+      "id": "get-user-info",
+      "name": "Get User Information",
+      "method": "GET",
+      "url": "/api/accounts/myInfo",
+      "headers": {},
+      "body": null,
+      "result": {
+        "id": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "name": "McHugh, Sean (seanmchugh1)",
+        "firstName": "Sean",
+        "lastName": "McHugh",
+        "userName": "seanmchugh1",
+        "avatar": "",
+        "email": "seanmchugh1@protonmail.com",
+        "workPhone": "5139738764",
+        "mobilePhone": "",
+        "company": "",
+        "address": "",
+        "jobTitle": "",
+        "activated": true,
+        "emailNotifications": false,
+        "tenantId": 1,
+        "ldapUser": false,
+        "ssoUser": false,
+        "dateCreated": "2025-09-29T09:42:38.9551571",
+        "lastLogin": "2025-09-29T09:53:04.3158251",
+        "readOnly": false,
+        "editMode": false,
+        "themeMode": "default",
+        "initials": "SM",
+        "defaultGridPageSize": 50
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "get-security-plans",
+      "name": "Get Security Plans List",
+      "method": "GET",
+      "url": "/api/securityplans/getList",
+      "headers": {},
+      "body": null,
+      "result": [
+        {
+          "id": 1,
+          "title": "Health Docs Situation",
+          "status": "Undergoing a Major Modification",
+          "systemType": "Major Application",
+          "categorization": "",
+          "description": "",
+          "complianceSettingsId": 1
+        }
+      ],
+      "statusCode": 200
+    },
+    {
+      "id": "create-security-plan",
+      "name": "Create New Security Plan",
+      "method": "POST",
+      "url": "/api/securityplans",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "systemName": "Demo Health System",
+        "description": "A demonstration security plan for a health documentation system",
+        "systemType": "Major Application",
+        "status": "In Development",
+        "complianceSettingsId": 1
+      },
+      "result": {
+        "id": 2,
+        "uuid": "a43351f9-39ca-403d-b25e-34d78df60f3c",
+        "systemName": "Demo Health System",
+        "status": "In Development",
+        "description": "A demonstration security plan for a health documentation system",
+        "systemType": "Major Application",
+        "parentId": 0,
+        "users": 0,
+        "privilegedUsers": 0,
+        "usersMFA": 0,
+        "privilegedUsersMFA": 0,
+        "internalUsers": 0,
+        "externalUsers": 0,
+        "internalUsersFuture": 0,
+        "externalUsersFuture": 0,
+        "hva": false,
+        "isPublic": true,
+        "bModelSaaS": false,
+        "bModelPaaS": false,
+        "bModelIaaS": false,
+        "bModelOther": false,
+        "bDeployPublic": false,
+        "bDeployPrivate": false,
+        "bDeployGov": false,
+        "bDeployHybrid": false,
+        "bDeployOther": false,
+        "defaultAssessmentDays": 365,
+        "complianceSettingsId": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-29T10:56:20.8340799Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-29T10:56:20.8340805Z"
+      },
+      "statusCode": 200
+    }
+  ]
+}
