@@ -6,15 +6,238 @@
       "id": "get-organizations",
       "name": "Get All Organizations",
       "method": "GET",
-      "url": "/api/organizations",
+      "url": "/api/organizations/getList",
       "headers": {
         "Content-Type": "application/json"
       },
       "body": {},
-      "result": {
-        "error": "stream has been aborted"
+      "result": [
+        {
+          "id": 2,
+          "name": "Health Widgets Inc.",
+          "status": "Active",
+          "manager": ""
+        },
+        {
+          "id": 5,
+          "name": "Engineering Department",
+          "status": "Inactive",
+          "manager": "",
+          "parentOrgId": 2
+        },
+        {
+          "id": 6,
+          "name": "Quality Assurance Department",
+          "status": "Active",
+          "manager": "",
+          "parentOrgId": 2
+        },
+        {
+          "id": 7,
+          "name": "Manufacturing Department",
+          "status": "Active",
+          "manager": "",
+          "parentOrgId": 2
+        }
+      ],
+      "statusCode": 200
+    },
+    {
+      "id": "get-accounts",
+      "name": "Get All Users/Accounts",
+      "method": "GET",
+      "url": "/api/accounts/getList",
+      "headers": {
+        "Content-Type": "application/json"
       },
-      "statusCode": 500
+      "body": {},
+      "result": [
+        {
+          "id": "37d66040-4ea7-490e-9114-55ece7e07b34",
+          "userName": "lisa.thompson",
+          "email": "lisa.thompson@healthwidgets.com"
+        },
+        {
+          "id": "3dccba09-cf3d-4334-b622-52ae65adb064",
+          "userName": "seanmchugh1",
+          "email": "seanmchugh1@protonmail.com"
+        },
+        {
+          "id": "7d7d02c1-159b-4260-82e0-1f2be674e250",
+          "userName": "sarah.chen",
+          "email": "sarah.chen@healthwidgets.com"
+        },
+        {
+          "id": "a349f699-94c6-4902-8b2c-d3af8b217907",
+          "userName": "mike.rodriguez",
+          "email": "mike.rodriguez@healthwidgets.com"
+        },
+        {
+          "id": "b77eb77d-2f0b-4a3e-9fbc-993386d813af",
+          "userName": "david.kim",
+          "email": "david.kim@healthwidgets.com"
+        },
+        {
+          "id": "d2f5c571-fc98-4537-acc1-b3283209a0e2",
+          "userName": "jennifer.park",
+          "email": "jennifer.park@healthwidgets.com"
+        }
+      ],
+      "statusCode": 200
+    },
+    {
+      "id": "get-account-details",
+      "name": "Get User Details (Mike Rodriguez)",
+      "method": "GET",
+      "url": "/api/accounts/a349f699-94c6-4902-8b2c-d3af8b217907",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {},
+      "result": [
+        {
+          "id": "7d7d02c1-159b-4260-82e0-1f2be674e250",
+          "name": "Chen, Sarah (sarah.chen)",
+          "firstName": "Sarah",
+          "lastName": "Chen",
+          "userName": "sarah.chen",
+          "avatar": "",
+          "email": "sarah.chen@healthwidgets.com",
+          "company": "Health Widgets Inc.",
+          "jobTitle": "CEO",
+          "orgId": 2,
+          "activated": true,
+          "emailNotifications": false,
+          "tenantId": 1,
+          "ldapUser": false,
+          "ssoUser": false,
+          "dateCreated": "2025-09-30T02:36:44.1809596",
+          "readOnly": false,
+          "editMode": false,
+          "themeMode": "default",
+          "initials": "SC",
+          "defaultGridPageSize": 50
+        },
+        {
+          "id": "b77eb77d-2f0b-4a3e-9fbc-993386d813af",
+          "name": "Kim, David (david.kim)",
+          "firstName": "David",
+          "lastName": "Kim",
+          "userName": "david.kim",
+          "avatar": "",
+          "email": "david.kim@healthwidgets.com",
+          "company": "Health Widgets Inc.",
+          "jobTitle": "Security Lead",
+          "orgId": 5,
+          "activated": true,
+          "emailNotifications": false,
+          "tenantId": 1,
+          "ldapUser": false,
+          "ssoUser": false,
+          "dateCreated": "2025-09-30T02:57:29.0102741",
+          "readOnly": false,
+          "editMode": false,
+          "themeMode": "default",
+          "initials": "DK",
+          "defaultGridPageSize": 50
+        },
+        {
+          "id": "3dccba09-cf3d-4334-b622-52ae65adb064",
+          "name": "McHugh, Sean (seanmchugh1)",
+          "firstName": "Sean",
+          "lastName": "McHugh",
+          "userName": "seanmchugh1",
+          "avatar": "",
+          "email": "seanmchugh1@protonmail.com",
+          "workPhone": "5139738764",
+          "mobilePhone": "",
+          "company": "",
+          "address": "",
+          "jobTitle": "",
+          "activated": true,
+          "emailNotifications": false,
+          "tenantId": 1,
+          "ldapUser": false,
+          "ssoUser": false,
+          "dateCreated": "2025-09-29T09:42:38.9551571",
+          "lastLogin": "2025-09-30T02:36:14.9474662",
+          "readOnly": false,
+          "editMode": false,
+          "themeMode": "default",
+          "initials": "SM",
+          "defaultGridPageSize": 50
+        },
+        {
+          "id": "d2f5c571-fc98-4537-acc1-b3283209a0e2",
+          "name": "Park, Jennifer (jennifer.park)",
+          "firstName": "Jennifer",
+          "lastName": "Park",
+          "userName": "jennifer.park",
+          "avatar": "",
+          "email": "jennifer.park@healthwidgets.com",
+          "company": "Health Widgets Inc.",
+          "jobTitle": "Quality Manager",
+          "orgId": 6,
+          "activated": true,
+          "emailNotifications": false,
+          "tenantId": 1,
+          "ldapUser": false,
+          "ssoUser": false,
+          "dateCreated": "2025-09-30T02:57:27.9919077",
+          "readOnly": false,
+          "editMode": false,
+          "themeMode": "default",
+          "initials": "JP",
+          "defaultGridPageSize": 50
+        },
+        {
+          "id": "a349f699-94c6-4902-8b2c-d3af8b217907",
+          "name": "Rodriguez, Mike (mike.rodriguez)",
+          "firstName": "Mike",
+          "lastName": "Rodriguez",
+          "userName": "mike.rodriguez",
+          "avatar": "",
+          "email": "mike.rodriguez@healthwidgets.com",
+          "company": "Health Widgets Inc.",
+          "jobTitle": "VP Engineering",
+          "orgId": 5,
+          "activated": true,
+          "emailNotifications": false,
+          "tenantId": 1,
+          "ldapUser": false,
+          "ssoUser": false,
+          "dateCreated": "2025-09-30T02:53:53.2200719",
+          "readOnly": false,
+          "editMode": false,
+          "themeMode": "default",
+          "initials": "MR",
+          "defaultGridPageSize": 50
+        },
+        {
+          "id": "37d66040-4ea7-490e-9114-55ece7e07b34",
+          "name": "Thompson, Lisa (lisa.thompson)",
+          "firstName": "Lisa",
+          "lastName": "Thompson",
+          "userName": "lisa.thompson",
+          "avatar": "",
+          "email": "lisa.thompson@healthwidgets.com",
+          "company": "Health Widgets Inc.",
+          "jobTitle": "Regulatory Affairs Specialist",
+          "orgId": 6,
+          "activated": true,
+          "emailNotifications": false,
+          "tenantId": 1,
+          "ldapUser": false,
+          "ssoUser": false,
+          "dateCreated": "2025-09-30T02:57:29.8545576Z",
+          "readOnly": false,
+          "editMode": false,
+          "themeMode": "default",
+          "initials": "LT",
+          "defaultGridPageSize": 50
+        }
+      ],
+      "statusCode": 200
     }
   ],
   "calls": [
@@ -121,7 +344,7 @@
         "company": "Health Widgets Inc.",
         "activated": true,
         "tenantId": 1,
-        "orgId": 2
+        "orgId": "${lookup:/api/organizations/getList, [0].id}"
       },
       "result": {
         "id": "7d7d02c1-159b-4260-82e0-1f2be674e250",
@@ -166,12 +389,32 @@
         "company": "Health Widgets Inc.",
         "activated": true,
         "tenantId": 1,
-        "orgId": 3
+        "orgId": "${lookup:/api/organizations/getList, [1].id}"
       },
       "result": {
-        "error": "stream has been aborted"
+        "id": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "name": "Rodriguez, Mike (mike.rodriguez)",
+        "firstName": "Mike",
+        "lastName": "Rodriguez",
+        "userName": "mike.rodriguez",
+        "avatar": "",
+        "email": "mike.rodriguez@healthwidgets.com",
+        "company": "Health Widgets Inc.",
+        "jobTitle": "VP Engineering",
+        "orgId": 5,
+        "activated": true,
+        "emailNotifications": false,
+        "tenantId": 1,
+        "ldapUser": false,
+        "ssoUser": false,
+        "dateCreated": "2025-09-30T02:53:53.2200719",
+        "readOnly": false,
+        "editMode": false,
+        "themeMode": "default",
+        "initials": "MR",
+        "defaultGridPageSize": 50
       },
-      "statusCode": 500
+      "statusCode": 200
     },
     {
       "id": "user-jennifer-park",
@@ -191,12 +434,32 @@
         "company": "Health Widgets Inc.",
         "activated": true,
         "tenantId": 1,
-        "orgId": 4
+        "orgId": "${lookup:/api/organizations/getList, [2].id}"
       },
       "result": {
-        "error": "stream has been aborted"
+        "id": "d2f5c571-fc98-4537-acc1-b3283209a0e2",
+        "name": "Park, Jennifer (jennifer.park)",
+        "firstName": "Jennifer",
+        "lastName": "Park",
+        "userName": "jennifer.park",
+        "avatar": "",
+        "email": "jennifer.park@healthwidgets.com",
+        "company": "Health Widgets Inc.",
+        "jobTitle": "Quality Manager",
+        "orgId": 6,
+        "activated": true,
+        "emailNotifications": false,
+        "tenantId": 1,
+        "ldapUser": false,
+        "ssoUser": false,
+        "dateCreated": "2025-09-30T02:57:27.9919077",
+        "readOnly": false,
+        "editMode": false,
+        "themeMode": "default",
+        "initials": "JP",
+        "defaultGridPageSize": 50
       },
-      "statusCode": 500
+      "statusCode": 200
     },
     {
       "id": "user-david-kim",
@@ -216,12 +479,32 @@
         "company": "Health Widgets Inc.",
         "activated": true,
         "tenantId": 1,
-        "orgId": 3
+        "orgId": "${lookup:/api/organizations/getList, [1].id}"
       },
       "result": {
-        "error": "stream has been aborted"
+        "id": "b77eb77d-2f0b-4a3e-9fbc-993386d813af",
+        "name": "Kim, David (david.kim)",
+        "firstName": "David",
+        "lastName": "Kim",
+        "userName": "david.kim",
+        "avatar": "",
+        "email": "david.kim@healthwidgets.com",
+        "company": "Health Widgets Inc.",
+        "jobTitle": "Security Lead",
+        "orgId": 5,
+        "activated": true,
+        "emailNotifications": false,
+        "tenantId": 1,
+        "ldapUser": false,
+        "ssoUser": false,
+        "dateCreated": "2025-09-30T02:57:29.0102741",
+        "readOnly": false,
+        "editMode": false,
+        "themeMode": "default",
+        "initials": "DK",
+        "defaultGridPageSize": 50
       },
-      "statusCode": 500
+      "statusCode": 200
     },
     {
       "id": "user-lisa-thompson",
@@ -241,12 +524,32 @@
         "company": "Health Widgets Inc.",
         "activated": true,
         "tenantId": 1,
-        "orgId": 4
+        "orgId": "${lookup:/api/organizations/getList, [2].id}"
       },
       "result": {
-        "error": "stream has been aborted"
+        "id": "37d66040-4ea7-490e-9114-55ece7e07b34",
+        "name": "Thompson, Lisa (lisa.thompson)",
+        "firstName": "Lisa",
+        "lastName": "Thompson",
+        "userName": "lisa.thompson",
+        "avatar": "",
+        "email": "lisa.thompson@healthwidgets.com",
+        "company": "Health Widgets Inc.",
+        "jobTitle": "Regulatory Affairs Specialist",
+        "orgId": 6,
+        "activated": true,
+        "emailNotifications": false,
+        "tenantId": 1,
+        "ldapUser": false,
+        "ssoUser": false,
+        "dateCreated": "2025-09-30T02:57:29.8545576",
+        "readOnly": false,
+        "editMode": false,
+        "themeMode": "default",
+        "initials": "LT",
+        "defaultGridPageSize": 50
       },
-      "statusCode": 500
+      "statusCode": 200
     }
   ]
 }

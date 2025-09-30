@@ -1,9 +1,104 @@
 const axios = require('axios');
 
 class HydrationService {
+  /**
+   * Resolves ${lookup:...} templates in a value
+   * Syntax: ${lookup:/api/endpoint, jsonPath}
+   * Example: ${lookup:/api/organizations/getList, [1].id}
+   */
+  static async resolveLookup(lookupString, bearerToken, baseUrl) {
+    // Extract the endpoint and path from the lookup string
+    const match = lookupString.match(/\$\{lookup:([^,]+),\s*(.+)\}/);
+    if (!match) {
+      throw new Error(`Invalid lookup syntax: ${lookupString}`);
+    }
+
+    const endpoint = match[1].trim();
+    const jsonPath = match[2].trim();
+
+    console.log(`  🔍 Lookup: ${endpoint} -> ${jsonPath}`);
+
+    // Execute the lookup call
+    const config = {
+      method: 'get',
+      url: `${baseUrl}${endpoint}`,
+      headers: {
+        'Authorization': `Bearer ${bearerToken}`,
+        'Content-Type': 'application/json'
+      }
+    };
+
+    const response = await axios(config);
+
+    // Navigate the JSON path
+    let value = response.data;
+
+    // Parse and evaluate the JSON path
+    // Handle array notation like [0] and object notation like .property
+    const pathParts = jsonPath.match(/\[(\d+)\]|\.?(\w+)/g);
+
+    if (pathParts) {
+      for (const part of pathParts) {
+        if (part.startsWith('[')) {
+          // Array index
+          const index = parseInt(part.slice(1, -1));
+          value = value[index];
+        } else {
+          // Object property
+          const prop = part.startsWith('.') ? part.slice(1) : part;
+          value = value[prop];
+        }
+
+        if (value === undefined) {
+          throw new Error(`Path ${jsonPath} not found in response from ${endpoint}`);
+        }
+      }
+    }
+
+    console.log(`  ✓ Resolved to: ${value}`);
+    return value;
+  }
+
+  /**
+   * Recursively processes an object/array to resolve all ${lookup:...} templates
+   */
+  static async resolveTemplates(obj, bearerToken, baseUrl) {
+    if (typeof obj === 'string') {
+      // Check if this string contains a lookup template
+      if (obj.includes('${lookup:')) {
+        return await this.resolveLookup(obj, bearerToken, baseUrl);
+      }
+      return obj;
+    }
+
+    if (Array.isArray(obj)) {
+      const resolved = [];
+      for (const item of obj) {
+        resolved.push(await this.resolveTemplates(item, bearerToken, baseUrl));
+      }
+      return resolved;
+    }
+
+    if (obj !== null && typeof obj === 'object') {
+      const resolved = {};
+      for (const [key, value] of Object.entries(obj)) {
+        resolved[key] = await this.resolveTemplates(value, bearerToken, baseUrl);
+      }
+      return resolved;
+    }
+
+    return obj;
+  }
+
   static async executeCall(call, bearerToken, baseUrl) {
     try {
       console.log(`Executing call: ${call.name} (${call.method} ${call.url})`);
+
+      // Resolve any templates in the call body
+      let resolvedBody = call.body;
+      if (call.body) {
+        resolvedBody = await this.resolveTemplates(call.body, bearerToken, baseUrl);
+      }
 
       const config = {
         method: call.method.toLowerCase(),
@@ -16,8 +111,8 @@ class HydrationService {
       };
 
       // Add body for POST, PUT, PATCH requests
-      if (call.body && ['post', 'put', 'patch'].includes(config.method)) {
-        config.data = call.body;
+      if (resolvedBody && ['post', 'put', 'patch'].includes(config.method)) {
+        config.data = resolvedBody;
       }
 
       const response = await axios(config);
