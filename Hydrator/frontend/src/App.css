@@ -49,3 +49,20 @@ pre {
 .small {
   font-size: 0.875em;
 }
+
+/* Business Model Graph */
+.business-model-graph {
+  text-align: center;
+  min-height: 500px;
+}
+
+.business-model-graph svg {
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background-color: #fafafa;
+}
+
+.graph-tooltip {
+  pointer-events: none;
+  line-height: 1.5;
+}

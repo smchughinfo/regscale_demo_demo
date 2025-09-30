@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ApiCallCard from './components/ApiCallCard';
 import ErrorModal from './components/ErrorModal';
+import BusinessModelGraph from './components/BusinessModelGraph';
 import './App.css';
 
 const App = () => {
@@ -217,6 +218,30 @@ const App = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Business Model Graph */}
+      <div className="row mb-4">
+        <div className="col">
+          <div
+            className="d-flex justify-content-between align-items-center mb-3"
+            style={{ cursor: 'pointer' }}
+            onClick={() => toggleSection('graphExpanded')}
+          >
+            <h5 className="mb-0">
+              <i className="bi bi-diagram-3 me-2"></i>
+              Business Model Graph
+            </h5>
+            <i className={`bi bi-chevron-${hydrationData?.uiState?.graphExpanded ? 'up' : 'down'}`}></i>
+          </div>
+          {hydrationData?.uiState?.graphExpanded && (
+            <div className="card">
+              <div className="card-body">
+                <BusinessModelGraph hydrationData={hydrationData} />
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
