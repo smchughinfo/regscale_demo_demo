@@ -4,6 +4,8 @@ import * as d3 from 'd3';
 const BusinessModelGraph = ({ hydrationData }) => {
   const svgRef = useRef();
   const containerRef = useRef();
+  const simulationRef = useRef();
+  const [selectedNode, setSelectedNode] = React.useState('assessments');
 
   useEffect(() => {
     if (!hydrationData) return;
@@ -94,6 +96,9 @@ const BusinessModelGraph = ({ hydrationData }) => {
       .force('center', d3.forceCenter(width / 2, height / 2))
       .force('collision', d3.forceCollide().radius(80));
 
+    // Store simulation reference for untangle button
+    simulationRef.current = simulation;
+
     // Add links
     const link = svg.append('g')
       .selectAll('line')
@@ -120,7 +125,8 @@ const BusinessModelGraph = ({ hydrationData }) => {
       .attr('r', 30)
       .attr('fill', d => d.color)
       .attr('stroke', '#fff')
-      .attr('stroke-width', 2);
+      .attr('stroke-width', 2)
+      .attr('class', 'node-circle');
 
     // Add labels
     node.append('text')
@@ -154,6 +160,59 @@ const BusinessModelGraph = ({ hydrationData }) => {
       .style('max-width', '300px')
       .style('z-index', '1000');
 
+    // Function to get connected node IDs
+    const getConnectedNodes = (nodeId) => {
+      const connected = new Set([nodeId]);
+      edges.forEach(edge => {
+        if (edge.source.id === nodeId || edge.source === nodeId) {
+          connected.add(edge.target.id || edge.target);
+        }
+        if (edge.target.id === nodeId || edge.target === nodeId) {
+          connected.add(edge.source.id || edge.source);
+        }
+      });
+      return connected;
+    };
+
+    // Apply dimming based on selected node
+    const updateDimming = (selectedId) => {
+      if (!selectedId) {
+        // No selection - reset all to normal
+        node.selectAll('.node-circle').style('opacity', 1);
+        node.selectAll('text').style('opacity', 1);
+        link.style('opacity', 0.6);
+      } else {
+        // Dim everything except selected node and its connections
+        const connected = getConnectedNodes(selectedId);
+
+        node.selectAll('.node-circle').style('opacity', d =>
+          connected.has(d.id) ? 1 : 0.2
+        );
+        node.selectAll('text').style('opacity', d =>
+          connected.has(d.id) ? 1 : 0.2
+        );
+        link.style('opacity', d => {
+          const sourceId = d.source.id || d.source;
+          const targetId = d.target.id || d.target;
+          return (sourceId === selectedId || targetId === selectedId) ? 0.6 : 0.1;
+        });
+      }
+    };
+
+    // Add click interaction for focus
+    node.on('click', function(event, d) {
+      event.stopPropagation();
+      const newSelection = selectedNode === d.id ? null : d.id;
+      setSelectedNode(newSelection);
+      updateDimming(newSelection);
+    });
+
+    // Click on background to clear selection
+    svg.on('click', function() {
+      setSelectedNode(null);
+      updateDimming(null);
+    });
+
     // Add tooltip interactions
     node
       .on('mouseover', function(event, d) {
@@ -177,6 +236,9 @@ const BusinessModelGraph = ({ hydrationData }) => {
           .attr('r', 30)
           .attr('stroke-width', 2);
       });
+
+    // Apply initial dimming if there's a selected node
+    updateDimming(selectedNode);
 
     // Update positions on tick
     simulation.on('tick', () => {
@@ -224,10 +286,16 @@ const BusinessModelGraph = ({ hydrationData }) => {
       window.removeEventListener('resize', handleResize);
       d3.selectAll('.graph-tooltip').remove();
     };
-  }, [hydrationData]);
+  }, [hydrationData, selectedNode]);
 
   return (
     <div className="business-model-graph" ref={containerRef}>
+      <div className="mb-3 text-center">
+        <small className="text-muted">
+          <i className="bi bi-info-circle me-1"></i>
+          Click on a node to highlight its relationships. Click again or on the background to reset.
+        </small>
+      </div>
       <svg ref={svgRef}></svg>
       <div className="mt-3 d-flex justify-content-center gap-4">
         <div className="d-flex align-items-center gap-2">
