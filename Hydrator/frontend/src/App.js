@@ -180,7 +180,7 @@ const App = () => {
         <div className="col">
           <h1 className="h3 mb-3">
             <i className="bi bi-database-gear me-2"></i>
-            RegScale Hydrator2
+            RegScale Hydrator
           </h1>
 
           {/* Bearer Token */}
