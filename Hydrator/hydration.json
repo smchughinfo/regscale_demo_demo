@@ -1,6 +1,22 @@
 {
   "bearerToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjpbInNlYW5tY2h1Z2gxIiwic2Vhbm1jaHVnaDEiXSwiaWQiOiIzZGNjYmEwOS1jZjNkLTQzMzQtYjYyMi01MmFlNjVhZGIwNjQiLCJyb2wiOiJhcGlfYWNjZXNzIiwic3ViIjoic2Vhbm1jaHVnaDEiLCJqdGkiOiJiODVhZjVlOS0zZjI3LTQ2OWEtODg4MS03YWJkNGQ4NTM2OTciLCJpYXQiOjE3NTkxMzk1ODQsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiM2RjY2JhMDktY2YzZC00MzM0LWI2MjItNTJhZTY1YWRiMDY0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9wcmltYXJ5Z3JvdXBzaWQiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYXRvciIsIm5iZiI6MTc1OTEzOTU4NCwiZXhwIjoxNzU5MjI1OTg0LCJpc3MiOiJSZWdTY2FsZSIsImF1ZCI6Imh0dHBzOi8vd3d3LnJlZ3NjYWxlLmlvLyJ9.w8TBRKl1e7ayFeLgEzGyluPEqHn1dVvkWrpEBvDh1qM",
   "baseUrl": "http://localhost:5000",
+  "utilities": [
+    {
+      "id": "get-organizations",
+      "name": "Get All Organizations",
+      "method": "GET",
+      "url": "/api/organizations",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {},
+      "result": {
+        "error": "stream has been aborted"
+      },
+      "statusCode": 500
+    }
+  ],
   "calls": [
     {
       "id": "org-health-widgets",
@@ -86,6 +102,151 @@
         "parentOrgId": 2
       },
       "statusCode": 200
+    },
+    {
+      "id": "user-sarah-chen",
+      "name": "Create User: Sarah Chen (CEO)",
+      "method": "POST",
+      "url": "/api/accounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "userName": "sarah.chen",
+        "email": "sarah.chen@healthwidgets.com",
+        "password": "51mpl3Compliance$2",
+        "firstName": "Sarah",
+        "lastName": "Chen",
+        "jobTitle": "CEO",
+        "company": "Health Widgets Inc.",
+        "activated": true,
+        "tenantId": 1,
+        "orgId": 2
+      },
+      "result": {
+        "id": "7d7d02c1-159b-4260-82e0-1f2be674e250",
+        "name": "Chen, Sarah (sarah.chen)",
+        "firstName": "Sarah",
+        "lastName": "Chen",
+        "userName": "sarah.chen",
+        "avatar": "",
+        "email": "sarah.chen@healthwidgets.com",
+        "company": "Health Widgets Inc.",
+        "jobTitle": "CEO",
+        "orgId": 2,
+        "activated": true,
+        "emailNotifications": false,
+        "tenantId": 1,
+        "ldapUser": false,
+        "ssoUser": false,
+        "dateCreated": "2025-09-30T02:36:44.1809596",
+        "readOnly": false,
+        "editMode": false,
+        "themeMode": "default",
+        "initials": "SC",
+        "defaultGridPageSize": 50
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "user-mike-rodriguez",
+      "name": "Create User: Mike Rodriguez (VP Engineering)",
+      "method": "POST",
+      "url": "/api/accounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "userName": "mike.rodriguez",
+        "email": "mike.rodriguez@healthwidgets.com",
+        "password": "51mpl3Compliance$2",
+        "firstName": "Mike",
+        "lastName": "Rodriguez",
+        "jobTitle": "VP Engineering",
+        "company": "Health Widgets Inc.",
+        "activated": true,
+        "tenantId": 1,
+        "orgId": 3
+      },
+      "result": {
+        "error": "stream has been aborted"
+      },
+      "statusCode": 500
+    },
+    {
+      "id": "user-jennifer-park",
+      "name": "Create User: Jennifer Park (Quality Manager)",
+      "method": "POST",
+      "url": "/api/accounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "userName": "jennifer.park",
+        "email": "jennifer.park@healthwidgets.com",
+        "password": "51mpl3Compliance$2",
+        "firstName": "Jennifer",
+        "lastName": "Park",
+        "jobTitle": "Quality Manager",
+        "company": "Health Widgets Inc.",
+        "activated": true,
+        "tenantId": 1,
+        "orgId": 4
+      },
+      "result": {
+        "error": "stream has been aborted"
+      },
+      "statusCode": 500
+    },
+    {
+      "id": "user-david-kim",
+      "name": "Create User: David Kim (Security Lead)",
+      "method": "POST",
+      "url": "/api/accounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "userName": "david.kim",
+        "email": "david.kim@healthwidgets.com",
+        "password": "51mpl3Compliance$2",
+        "firstName": "David",
+        "lastName": "Kim",
+        "jobTitle": "Security Lead",
+        "company": "Health Widgets Inc.",
+        "activated": true,
+        "tenantId": 1,
+        "orgId": 3
+      },
+      "result": {
+        "error": "stream has been aborted"
+      },
+      "statusCode": 500
+    },
+    {
+      "id": "user-lisa-thompson",
+      "name": "Create User: Lisa Thompson (Regulatory Affairs)",
+      "method": "POST",
+      "url": "/api/accounts",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "userName": "lisa.thompson",
+        "email": "lisa.thompson@healthwidgets.com",
+        "password": "51mpl3Compliance$2",
+        "firstName": "Lisa",
+        "lastName": "Thompson",
+        "jobTitle": "Regulatory Affairs Specialist",
+        "company": "Health Widgets Inc.",
+        "activated": true,
+        "tenantId": 1,
+        "orgId": 4
+      },
+      "result": {
+        "error": "stream has been aborted"
+      },
+      "statusCode": 500
     }
   ]
 }

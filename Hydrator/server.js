@@ -77,11 +77,19 @@ app.put('/api/hydration', async (req, res) => {
   }
 });
 
-// Execute single call
+// Execute single call (from either utilities or calls)
 app.post('/api/execute/:callId', async (req, res) => {
   try {
     const { callId } = req.params;
-    const call = hydrationData.calls.find(c => c.id === callId);
+
+    // Search in both calls and utilities
+    let call = hydrationData.calls?.find(c => c.id === callId);
+    let isUtility = false;
+
+    if (!call && hydrationData.utilities) {
+      call = hydrationData.utilities.find(c => c.id === callId);
+      isUtility = true;
+    }
 
     if (!call) {
       return res.status(404).json({ error: 'Call not found' });
@@ -116,10 +124,18 @@ app.post('/api/execute', async (req, res) => {
 // Clear all results
 app.post('/api/clear', async (req, res) => {
   try {
-    hydrationData.calls.forEach(call => {
-      call.result = null;
-      call.statusCode = null;
-    });
+    if (hydrationData.calls) {
+      hydrationData.calls.forEach(call => {
+        call.result = null;
+        call.statusCode = null;
+      });
+    }
+    if (hydrationData.utilities) {
+      hydrationData.utilities.forEach(call => {
+        call.result = null;
+        call.statusCode = null;
+      });
+    }
     await saveHydrationData(hydrationData);
     res.json({ success: true });
   } catch (error) {
