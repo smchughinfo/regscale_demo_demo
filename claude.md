@@ -4,6 +4,17 @@
 
 **RegScale Demo Demo** A demo app that uses RegScale and LangChain ...in the cloud!
 
+## Target Solution Architecture (TSA)
+
+**Cloud Infrastructure (Azure):**
+- **AKS (Azure Kubernetes Service)**: RegScale GRC platform
+- **Azure Functions**: LangChain backend (serverless, pay-per-execution)
+- **App Service**: ASP.NET frontend
+- **App Service**: Hydrator (Node.js + React)
+- **Azure SQL Database**: RegScale database (required for K8s deployment)
+- **Resource Group**: `regscale-demo-demo`
+- **Region**: East US
+
 ## Development Tools
 
 ### RegScale API
