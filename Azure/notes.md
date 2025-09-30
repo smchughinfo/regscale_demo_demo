@@ -13,3 +13,11 @@
 **Namespace:** regscale
 **Cluster:** regscale-aks
 **Resource Group:** regscale-demo-demo
+
+**Default RegScale Admin:**
+- Username: admin
+- Password: 51mpl3Compliance$2
+
+**Health Widgets LLC Tenant Administrator:**
+- Username: seanmchugh1
+- Password: 51mpl3Compliance$2
