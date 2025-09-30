@@ -1663,8 +1663,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 2,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:20.9779271Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:20.9779274Z",
+        "isPublic": true,
+        "uuid": "3ac88aea-fae7-4926-83f5-7916b0b2d0c2",
+        "controlId": "SEC-002",
+        "sortId": "SEC-002",
+        "controlType": "Security",
+        "title": "Data Encryption in Transit (TLS 1.3)",
+        "description": "All data transmitted between devices, mobile apps, and cloud services uses TLS 1.3 encryption",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-mfa",
@@ -1682,8 +1697,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 3,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:21.7909967Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:21.790997Z",
+        "isPublic": true,
+        "uuid": "0a40b41e-0e6c-4249-8182-d9e0781f17a4",
+        "controlId": "SEC-003",
+        "sortId": "SEC-003",
+        "controlType": "Security",
+        "title": "User Authentication (Multi-factor)",
+        "description": "Multi-factor authentication required for all administrative and clinical user access",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-rbac",
@@ -1701,8 +1731,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 4,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:23.4439225Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:23.4439228Z",
+        "isPublic": true,
+        "uuid": "f426645b-4a2a-421d-9963-4c809a0dac62",
+        "controlId": "SEC-004",
+        "sortId": "SEC-004",
+        "controlType": "Security",
+        "title": "Access Control (Role-based)",
+        "description": "Role-based access control (RBAC) enforces least privilege access to patient data and system functions",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-logging",
@@ -1720,8 +1765,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 5,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:24.1309135Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:24.1309139Z",
+        "isPublic": true,
+        "uuid": "9377392b-1fa3-47ff-b8b2-32215986d9c3",
+        "controlId": "SEC-005",
+        "sortId": "SEC-005",
+        "controlType": "Security",
+        "title": "Security Logging and Monitoring",
+        "description": "Comprehensive logging and real-time monitoring of security events across all systems",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-vuln-scanning",
@@ -1739,8 +1799,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 6,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:24.6921075Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:24.6921076Z",
+        "isPublic": true,
+        "uuid": "35b01f06-37ea-4b44-9e78-444bf07f807e",
+        "controlId": "SEC-006",
+        "sortId": "SEC-006",
+        "controlType": "Security",
+        "title": "Vulnerability Scanning",
+        "description": "Automated vulnerability scanning performed weekly on all cloud infrastructure and applications",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-secure-boot",
@@ -1758,8 +1833,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 7,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:27.6404408Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:27.6404411Z",
+        "isPublic": true,
+        "uuid": "6e36a26c-cf9a-467d-9b6a-7222de962ba8",
+        "controlId": "SEC-007",
+        "sortId": "SEC-007",
+        "controlType": "Security",
+        "title": "Secure Boot (Device firmware)",
+        "description": "Medical devices implement secure boot to prevent unauthorized firmware modification",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-code-signing",
@@ -1777,8 +1867,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 8,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:28.6326571Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:28.6326573Z",
+        "isPublic": true,
+        "uuid": "43c33a35-6deb-4a9f-9f9b-8af6df5ec6a4",
+        "controlId": "SEC-008",
+        "sortId": "SEC-008",
+        "controlType": "Security",
+        "title": "Code Signing (Software updates)",
+        "description": "All firmware and software updates are digitally signed to ensure authenticity and integrity",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-pentest",
@@ -1796,8 +1901,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 9,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:29.0967094Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:29.0967099Z",
+        "isPublic": true,
+        "uuid": "76ec7c32-bfea-47f7-88cc-89e37bf9a402",
+        "controlId": "SEC-009",
+        "sortId": "SEC-009",
+        "controlType": "Security",
+        "title": "Penetration Testing (Annual)",
+        "description": "Annual third-party penetration testing of cloud platform and mobile applications",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-incident-response",
@@ -1815,8 +1935,23 @@
         "controlType": "Security",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 10,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:29.6598994Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:29.6598999Z",
+        "isPublic": true,
+        "uuid": "0f154359-1053-4ad7-aa13-ea201ea515c6",
+        "controlId": "SEC-010",
+        "sortId": "SEC-010",
+        "controlType": "Security",
+        "title": "Incident Response Plan",
+        "description": "Documented incident response procedures for security breaches and system failures",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-design-validation",
@@ -1834,8 +1969,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 11,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:30.2039881Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:30.2039883Z",
+        "isPublic": true,
+        "uuid": "dddd3ebb-a350-4d7f-9e02-547cac91c8db",
+        "controlId": "QUA-001",
+        "sortId": "QUA-001",
+        "controlType": "Quality",
+        "title": "Design Validation Testing",
+        "description": "Formal design validation testing ensures devices meet user needs and intended use requirements",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-sterilization",
@@ -1853,8 +2003,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 12,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:31.2290341Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:31.2290345Z",
+        "isPublic": true,
+        "uuid": "5e700823-6e80-4160-960a-46d6c7e2d9c7",
+        "controlId": "QUA-002",
+        "sortId": "QUA-002",
+        "controlType": "Quality",
+        "title": "Sterilization Validation",
+        "description": "Sterilization processes validated to ensure medical-grade cleanliness of device components",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-electrical-safety",
@@ -1872,8 +2037,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 15,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:36.0283441Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:36.0283446Z",
+        "isPublic": true,
+        "uuid": "fc18daa3-6384-4430-9169-9a8b4592de2e",
+        "controlId": "QUA-003",
+        "sortId": "QUA-003",
+        "controlType": "Quality",
+        "title": "Electrical Safety Testing",
+        "description": "IEC 60601-1 electrical safety testing for all medical device hardware",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-emc-emi",
@@ -1891,8 +2071,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 13,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:33.1252082Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:33.1252085Z",
+        "isPublic": true,
+        "uuid": "8ca7e1b3-582d-4859-8c9b-038ca5d16dd4",
+        "controlId": "QUA-004",
+        "sortId": "QUA-004",
+        "controlType": "Quality",
+        "title": "EMC/EMI Testing",
+        "description": "Electromagnetic compatibility and interference testing to ensure device reliability",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-software-validation",
@@ -1910,8 +2105,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 14,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:34.8549478Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:34.854948Z",
+        "isPublic": true,
+        "uuid": "4ec913e4-fa16-4645-a0f5-e0c236f43a13",
+        "controlId": "QUA-005",
+        "sortId": "QUA-005",
+        "controlType": "Quality",
+        "title": "Software Validation (IEC 62304)",
+        "description": "Medical device software lifecycle processes following IEC 62304 standard",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-usability",
@@ -1929,8 +2139,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 16,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:38.3990499Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:38.3990502Z",
+        "isPublic": true,
+        "uuid": "999eed37-a310-4296-9793-3bd5be6ef321",
+        "controlId": "QUA-006",
+        "sortId": "QUA-006",
+        "controlType": "Quality",
+        "title": "Usability Testing",
+        "description": "Human factors and usability engineering testing per IEC 62366",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-manufacturing-process",
@@ -1948,8 +2173,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 17,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:39.0219179Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:39.0219182Z",
+        "isPublic": true,
+        "uuid": "faaabe57-90c0-488f-ab04-cac6b5a3e71e",
+        "controlId": "QUA-007",
+        "sortId": "QUA-007",
+        "controlType": "Quality",
+        "title": "Manufacturing Process Controls",
+        "description": "Documented manufacturing procedures with in-process quality checks and controls",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-incoming-inspection",
@@ -1967,8 +2207,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 18,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:39.9041122Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:39.9041124Z",
+        "isPublic": true,
+        "uuid": "5bf0d138-221a-4901-9959-0f5a1be11297",
+        "controlId": "QUA-008",
+        "sortId": "QUA-008",
+        "controlType": "Quality",
+        "title": "Component Incoming Inspection",
+        "description": "Inspection and testing of all incoming components and materials before use",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-calibration",
@@ -1986,8 +2241,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 19,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:42.3704348Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:42.370435Z",
+        "isPublic": true,
+        "uuid": "9a603275-3e54-4069-802c-5251d0d35c92",
+        "controlId": "QUA-009",
+        "sortId": "QUA-009",
+        "controlType": "Quality",
+        "title": "Calibration Management",
+        "description": "Regular calibration and maintenance of measurement and test equipment",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     },
     {
       "id": "control-capa",
@@ -2005,8 +2275,23 @@
         "controlType": "Quality",
         "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
       },
-      "result": null,
-      "statusCode": null
+      "result": {
+        "id": 20,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:21:42.9312485Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:21:42.9312488Z",
+        "isPublic": true,
+        "uuid": "bd5d20c4-8a89-4ce6-a5ea-14c7888b0b7d",
+        "controlId": "QUA-010",
+        "sortId": "QUA-010",
+        "controlType": "Quality",
+        "title": "Corrective/Preventive Action (CAPA)",
+        "description": "Systematic process for identifying, investigating, and correcting quality issues",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
     }
   ]
 }
