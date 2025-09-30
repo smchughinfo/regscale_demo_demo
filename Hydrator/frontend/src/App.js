@@ -209,25 +209,31 @@ const App = () => {
       </div>
 
       {/* Utility Methods */}
-      {hydrationData?.calls?.filter(call => call.method === 'GET').length > 0 && (
+      {hydrationData?.utilities && hydrationData.utilities.length > 0 && (
         <div className="row mb-4">
           <div className="col">
             <h5 className="mb-3">
               <i className="bi bi-wrench me-2"></i>
               Utility Methods (GET)
             </h5>
-            {hydrationData.calls
-              .map((call, originalIndex) => ({ call, originalIndex }))
-              .filter(({ call }) => call.method === 'GET')
-              .map(({ call, originalIndex }) => (
-                <ApiCallCard
-                  key={call.id}
-                  call={call}
-                  index={originalIndex}
-                  onUpdate={updateCall}
-                  onExecute={executeCall}
-                />
-              ))}
+            {hydrationData.utilities.map((call, index) => (
+              <ApiCallCard
+                key={call.id}
+                call={call}
+                index={index}
+                onUpdate={(callId, updatedCall) => {
+                  const newData = {
+                    ...hydrationData,
+                    utilities: hydrationData.utilities.map(u =>
+                      u.id === callId ? updatedCall : u
+                    )
+                  };
+                  setHydrationData(newData);
+                  updateHydrationData(newData);
+                }}
+                onExecute={executeCall}
+              />
+            ))}
           </div>
         </div>
       )}
