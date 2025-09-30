@@ -238,6 +238,34 @@
         }
       ],
       "statusCode": 200
+    },
+    {
+      "id": "get-facilities",
+      "name": "Get All Facilities",
+      "method": "GET",
+      "url": "/api/facilities/getList",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {},
+      "result": [
+        {
+          "id": 1,
+          "name": "HQ - San Diego Campus",
+          "address": "1234 Innovation Way, San Diego, CA 92121"
+        },
+        {
+          "id": 2,
+          "name": "Manufacturing Plant - Carlsbad",
+          "address": "5678 Industrial Pkwy, Carlsbad, CA 92008"
+        },
+        {
+          "id": 3,
+          "name": "Testing Lab - San Diego",
+          "address": "9012 Science Center Dr, San Diego, CA 92121"
+        }
+      ],
+      "statusCode": 200
     }
   ],
   "calls": [
@@ -548,6 +576,87 @@
         "themeMode": "default",
         "initials": "LT",
         "defaultGridPageSize": 50
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "facility-hq",
+      "name": "Create Facility: HQ - San Diego Campus",
+      "method": "POST",
+      "url": "/api/facilities",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "name": "HQ - San Diego Campus",
+        "description": "Engineering & Administrative Headquarters",
+        "address": "1234 Innovation Way, San Diego, CA 92121",
+        "status": "Active"
+      },
+      "result": {
+        "id": 1,
+        "name": "HQ - San Diego Campus",
+        "description": "Engineering & Administrative Headquarters",
+        "address": "1234 Innovation Way, San Diego, CA 92121",
+        "status": "Active",
+        "latitude": 0,
+        "longitude": 0,
+        "isPublic": false,
+        "tenantsId": 1
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "facility-manufacturing",
+      "name": "Create Facility: Manufacturing Plant - Carlsbad",
+      "method": "POST",
+      "url": "/api/facilities",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "name": "Manufacturing Plant - Carlsbad",
+        "description": "Device production and assembly operations",
+        "address": "5678 Industrial Pkwy, Carlsbad, CA 92008",
+        "status": "Active"
+      },
+      "result": {
+        "id": 2,
+        "name": "Manufacturing Plant - Carlsbad",
+        "description": "Device production and assembly operations",
+        "address": "5678 Industrial Pkwy, Carlsbad, CA 92008",
+        "status": "Active",
+        "latitude": 0,
+        "longitude": 0,
+        "isPublic": false,
+        "tenantsId": 1
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "facility-testing-lab",
+      "name": "Create Facility: Testing Lab - San Diego",
+      "method": "POST",
+      "url": "/api/facilities",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "name": "Testing Lab - San Diego",
+        "description": "Quality assurance and validation testing laboratory",
+        "address": "9012 Science Center Dr, San Diego, CA 92121",
+        "status": "Active"
+      },
+      "result": {
+        "id": 3,
+        "name": "Testing Lab - San Diego",
+        "description": "Quality assurance and validation testing laboratory",
+        "address": "9012 Science Center Dr, San Diego, CA 92121",
+        "status": "Active",
+        "latitude": 0,
+        "longitude": 0,
+        "isPublic": false,
+        "tenantsId": 1
       },
       "statusCode": 200
     }
