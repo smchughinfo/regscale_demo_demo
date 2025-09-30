@@ -214,30 +214,6 @@ These represent the main products and supporting systems:
 
 ---
 
-## 9. Additional Entities (Optional/Advanced)
-
-### Policies
-- [ ] Information Security Policy
-- [ ] Quality Management Policy
-- [ ] Risk Management Policy
-- [ ] Supplier Management Policy
-
-### Issues
-- [ ] Issue #45: WiFi dropout on WidgetMonitor (Closed)
-- [ ] Issue #67: GlucoWidget app crash on iOS 17 (In Progress)
-- [ ] Issue #89: Regulatory feedback on WidgetPump battery life (Open)
-
-### Tasks
-- [ ] Complete WidgetPump FDA 510(k) submission
-- [ ] Update encryption to AES-256 across all devices
-- [ ] Remediate findings from Q2 security assessment
-
-### Incidents
-- [ ] Security Incident: Attempted phishing attack (2024-11-15)
-- [ ] Quality Incident: Batch recall - sensor adhesive (2024-08-22)
-
----
-
 ## Hydration Strategy
 
 ### Phase 1: Foundation (Start Here)
