@@ -40,13 +40,13 @@ Session memory provides a chronological record of development conversations and 
 When requested to save session memory:
 
 1. **Summarize conversation** focusing on technical progress and decisions
-2. **Save to** `/SessionMemory/MM-DD-YY-HH-MM-topic.txt`
+2. **Save to** `/SessionMemory/MM-DD-YY-HH-MM-topic.md`
 3. **Include**: Development progress, technical insights, decisions made, and next steps
 
 ### File Structure
 ```
 /SessionMemory/
-├── 09-29-25-14-30-initial-setup.txt
-├── 09-29-25-15-45-api-exploration.txt
+├── 09-29-25-14-30-initial-setup.md
+├── 09-29-25-15-45-api-exploration.md
 └── [future sessions]
 ```
