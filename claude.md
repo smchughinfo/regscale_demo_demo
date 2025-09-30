@@ -10,6 +10,17 @@
 - **Swagger Documentation**: http://localhost:5000/swagger/index.html
 - **Base URL**: http://localhost:5000/
 
+### RegScale Hydrator
+The Hydrator is a custom tool for systematically building RegScale data via API calls with dynamic lookups.
+
+**IMPORTANT:** Always read `/Hydrator/HYDRATOR_NOTES.md` when working with the Hydrator. This file contains:
+- Lookup array index conventions (organizations, users, security plans)
+- Standard field mappings for each entity type
+- Lookup syntax examples
+- Current execution order
+
+Without this reference, lookup indices like `[3]` will be meaningless after conversation compaction.
+
 ### Tmux Integration
 For collaborative terminal work, use tmux sessions:
 

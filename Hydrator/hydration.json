@@ -266,6 +266,24 @@
         }
       ],
       "statusCode": 200
+    },
+    {
+      "id": "get-catalogues",
+      "name": "Get All Security Control Catalogues",
+      "method": "GET",
+      "url": "/api/catalogues/getList",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {},
+      "result": [
+        {
+          "title": "Health Widgets Compliance Controls",
+          "id": 1,
+          "uuid": "031b1900-d98f-4a0c-a372-eff866521d3f"
+        }
+      ],
+      "statusCode": 200
     }
   ],
   "calls": [
@@ -659,6 +677,1336 @@
         "tenantsId": 1
       },
       "statusCode": 200
+    },
+    {
+      "id": "secplan-widgetmonitor",
+      "name": "Create Security Plan: WidgetMonitor System",
+      "method": "POST",
+      "url": "/api/securityplans",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "systemName": "WidgetMonitor System",
+        "description": "Bedside vital signs monitor - tracks heart rate, blood pressure, temperature, oxygen levels",
+        "status": "Production/Active",
+        "systemType": "Medical Device"
+      },
+      "result": {
+        "id": 3,
+        "uuid": "17bcc097-de58-434d-808d-d3e20c2ce264",
+        "systemName": "WidgetMonitor System",
+        "status": "Production/Active",
+        "description": "Bedside vital signs monitor - tracks heart rate, blood pressure, temperature, oxygen levels",
+        "systemType": "Medical Device",
+        "parentId": 0,
+        "users": 0,
+        "privilegedUsers": 0,
+        "usersMFA": 0,
+        "privilegedUsersMFA": 0,
+        "internalUsers": 0,
+        "externalUsers": 0,
+        "internalUsersFuture": 0,
+        "externalUsersFuture": 0,
+        "hva": false,
+        "isPublic": true,
+        "bModelSaaS": false,
+        "bModelPaaS": false,
+        "bModelIaaS": false,
+        "bModelOther": false,
+        "bDeployPublic": false,
+        "bDeployPrivate": false,
+        "bDeployGov": false,
+        "bDeployHybrid": false,
+        "bDeployOther": false,
+        "defaultAssessmentDays": 365,
+        "complianceSettingsId": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:07:41.6821336Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:07:41.6821339Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "secplan-glucowidget",
+      "name": "Create Security Plan: GlucoWidget System",
+      "method": "POST",
+      "url": "/api/securityplans",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "systemName": "GlucoWidget System",
+        "description": "Continuous glucose monitoring system - Bluetooth sensor with mobile app and cloud dashboard",
+        "status": "Production/Active",
+        "systemType": "Medical Device"
+      },
+      "result": {
+        "id": 4,
+        "uuid": "8b3ba1ac-b78c-4f86-bfb9-e720ac4d4413",
+        "systemName": "GlucoWidget System",
+        "status": "Production/Active",
+        "description": "Continuous glucose monitoring system - Bluetooth sensor with mobile app and cloud dashboard",
+        "systemType": "Medical Device",
+        "parentId": 0,
+        "users": 0,
+        "privilegedUsers": 0,
+        "usersMFA": 0,
+        "privilegedUsersMFA": 0,
+        "internalUsers": 0,
+        "externalUsers": 0,
+        "internalUsersFuture": 0,
+        "externalUsersFuture": 0,
+        "hva": false,
+        "isPublic": true,
+        "bModelSaaS": false,
+        "bModelPaaS": false,
+        "bModelIaaS": false,
+        "bModelOther": false,
+        "bDeployPublic": false,
+        "bDeployPrivate": false,
+        "bDeployGov": false,
+        "bDeployHybrid": false,
+        "bDeployOther": false,
+        "defaultAssessmentDays": 365,
+        "complianceSettingsId": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:07:43.3179965Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:07:43.3179968Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "secplan-widgetpump",
+      "name": "Create Security Plan: WidgetPump System",
+      "method": "POST",
+      "url": "/api/securityplans",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "systemName": "WidgetPump System",
+        "description": "Smart insulin delivery pump - automatically adjusts insulin based on glucose readings",
+        "status": "Under Development/FDA Review",
+        "systemType": "Medical Device"
+      },
+      "result": {
+        "id": 5,
+        "uuid": "e92e9714-d37d-4f22-b143-800487787678",
+        "systemName": "WidgetPump System",
+        "status": "Under Development/FDA Review",
+        "description": "Smart insulin delivery pump - automatically adjusts insulin based on glucose readings",
+        "systemType": "Medical Device",
+        "parentId": 0,
+        "users": 0,
+        "privilegedUsers": 0,
+        "usersMFA": 0,
+        "privilegedUsersMFA": 0,
+        "internalUsers": 0,
+        "externalUsers": 0,
+        "internalUsersFuture": 0,
+        "externalUsersFuture": 0,
+        "hva": false,
+        "isPublic": true,
+        "bModelSaaS": false,
+        "bModelPaaS": false,
+        "bModelIaaS": false,
+        "bModelOther": false,
+        "bDeployPublic": false,
+        "bDeployPrivate": false,
+        "bDeployGov": false,
+        "bDeployHybrid": false,
+        "bDeployOther": false,
+        "defaultAssessmentDays": 365,
+        "complianceSettingsId": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:07:44.0899198Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:07:44.0899205Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "secplan-cloud-platform",
+      "name": "Create Security Plan: Health Widgets Cloud Platform",
+      "method": "POST",
+      "url": "/api/securityplans",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "systemName": "Health Widgets Cloud Platform",
+        "description": "Supporting cloud infrastructure for all medical devices - data processing, storage, and analytics",
+        "status": "Production/Active",
+        "systemType": "Information System"
+      },
+      "result": {
+        "id": 6,
+        "uuid": "76c0180f-cd56-4668-bb21-7f9c2addef1f",
+        "systemName": "Health Widgets Cloud Platform",
+        "status": "Production/Active",
+        "description": "Supporting cloud infrastructure for all medical devices - data processing, storage, and analytics",
+        "systemType": "Information System",
+        "parentId": 0,
+        "users": 0,
+        "privilegedUsers": 0,
+        "usersMFA": 0,
+        "privilegedUsersMFA": 0,
+        "internalUsers": 0,
+        "externalUsers": 0,
+        "internalUsersFuture": 0,
+        "externalUsersFuture": 0,
+        "hva": false,
+        "isPublic": true,
+        "bModelSaaS": false,
+        "bModelPaaS": false,
+        "bModelIaaS": false,
+        "bModelOther": false,
+        "bDeployPublic": false,
+        "bDeployPrivate": false,
+        "bDeployGov": false,
+        "bDeployHybrid": false,
+        "bDeployOther": false,
+        "defaultAssessmentDays": 365,
+        "complianceSettingsId": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:07:44.7945241Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:07:44.7945245Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "secplan-mobile-app",
+      "name": "Create Security Plan: GlucoWidget Mobile App",
+      "method": "POST",
+      "url": "/api/securityplans",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "systemName": "GlucoWidget Mobile App",
+        "description": "Consumer-facing mobile application for glucose monitoring - iOS and Android",
+        "status": "Production/Active",
+        "systemType": "Mobile Application"
+      },
+      "result": {
+        "id": 7,
+        "uuid": "380a8c71-408a-4928-8a93-7e4b1db91eb7",
+        "systemName": "GlucoWidget Mobile App",
+        "status": "Production/Active",
+        "description": "Consumer-facing mobile application for glucose monitoring - iOS and Android",
+        "systemType": "Mobile Application",
+        "parentId": 0,
+        "users": 0,
+        "privilegedUsers": 0,
+        "usersMFA": 0,
+        "privilegedUsersMFA": 0,
+        "internalUsers": 0,
+        "externalUsers": 0,
+        "internalUsersFuture": 0,
+        "externalUsersFuture": 0,
+        "hva": false,
+        "isPublic": true,
+        "bModelSaaS": false,
+        "bModelPaaS": false,
+        "bModelIaaS": false,
+        "bModelOther": false,
+        "bDeployPublic": false,
+        "bDeployPrivate": false,
+        "bDeployGov": false,
+        "bDeployHybrid": false,
+        "bDeployOther": false,
+        "defaultAssessmentDays": 365,
+        "complianceSettingsId": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:07:47.078951Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:07:47.0789515Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-ti-bluetooth",
+      "name": "Create Component: TI CC2640 Bluetooth Module",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "TI CC2640 Bluetooth Module",
+        "description": "Bluetooth Low Energy wireless module used for device communication",
+        "componentType": "Hardware",
+        "manufacturer": "Texas Instruments",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [1].id}"
+      },
+      "result": {
+        "id": 1,
+        "isPublic": true,
+        "uuid": "06ae6e33-3044-42e6-8186-e8fc3752bb7d",
+        "title": "TI CC2640 Bluetooth Module",
+        "description": "Bluetooth Low Energy wireless module used for device communication",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:22:59.9282207Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:22:59.9282212Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-qualcomm-wifi",
+      "name": "Create Component: Qualcomm WiFi Module",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Qualcomm WiFi Module",
+        "description": "802.11ac WiFi module for network connectivity",
+        "componentType": "Hardware",
+        "manufacturer": "Qualcomm",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
+      },
+      "result": {
+        "id": 2,
+        "isPublic": true,
+        "uuid": "ac9afa4d-8812-4144-a8cf-4b8a557dc98e",
+        "title": "Qualcomm WiFi Module",
+        "description": "802.11ac WiFi module for network connectivity",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:44.9477891Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:44.9477894Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-stm32-mcu",
+      "name": "Create Component: STM32 Microcontroller",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "STM32 Microcontroller",
+        "description": "ARM Cortex-M processor used in all medical devices",
+        "componentType": "Hardware",
+        "manufacturer": "STMicroelectronics",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1
+      },
+      "result": {
+        "id": 3,
+        "isPublic": true,
+        "uuid": "a4222e14-c731-4372-a54b-c81a3c9b2759",
+        "title": "STM32 Microcontroller",
+        "description": "ARM Cortex-M processor used in all medical devices",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:46.0084233Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:46.0084237Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-battery",
+      "name": "Create Component: Lithium Ion Battery Pack",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Lithium Ion Battery Pack",
+        "description": "Rechargeable battery for portable device power",
+        "componentType": "Hardware",
+        "manufacturer": "Panasonic",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1
+      },
+      "result": {
+        "id": 4,
+        "isPublic": true,
+        "uuid": "630bbc74-6768-4ee6-82bd-25989a917e15",
+        "title": "Lithium Ion Battery Pack",
+        "description": "Rechargeable battery for portable device power",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:47.6367154Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:47.6367158Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-glucose-sensor",
+      "name": "Create Component: Blood Glucose Sensor",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Blood Glucose Sensor",
+        "description": "Continuous glucose monitoring sensor",
+        "componentType": "Hardware",
+        "manufacturer": "Sensirion",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [1].id}"
+      },
+      "result": {
+        "id": 5,
+        "isPublic": true,
+        "uuid": "95ea7677-7005-4372-8fbf-fea62debdb1c",
+        "title": "Blood Glucose Sensor",
+        "description": "Continuous glucose monitoring sensor",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:48.4403524Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:48.4403526Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-heart-rate-sensor",
+      "name": "Create Component: Heart Rate Sensor",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Heart Rate Sensor",
+        "description": "Optical heart rate monitoring sensor",
+        "componentType": "Hardware",
+        "manufacturer": "Sensirion",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
+      },
+      "result": {
+        "id": 6,
+        "isPublic": true,
+        "uuid": "8389b464-46f3-4ca1-b047-4dc41850f155",
+        "title": "Heart Rate Sensor",
+        "description": "Optical heart rate monitoring sensor",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:50.4524998Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:50.4525001Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-bp-sensor",
+      "name": "Create Component: Blood Pressure Sensor",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Blood Pressure Sensor",
+        "description": "Non-invasive blood pressure measurement sensor",
+        "componentType": "Hardware",
+        "manufacturer": "Sensirion",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
+      },
+      "result": {
+        "id": 7,
+        "isPublic": true,
+        "uuid": "2d935bd3-a132-4b32-a9b8-862b2ceb5d20",
+        "title": "Blood Pressure Sensor",
+        "description": "Non-invasive blood pressure measurement sensor",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:54.1143297Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:54.1143299Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-lcd-display",
+      "name": "Create Component: LCD Display Module",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "LCD Display Module",
+        "description": "Color touchscreen display for user interface",
+        "componentType": "Hardware",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1
+      },
+      "result": {
+        "id": 8,
+        "isPublic": true,
+        "uuid": "9a1cfbfb-7d59-44b1-bd38-1369c286caca",
+        "title": "LCD Display Module",
+        "description": "Color touchscreen display for user interface",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:54.8649928Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:54.8649931Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-enclosure",
+      "name": "Create Component: Secure Enclosure/Case",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Secure Enclosure/Case",
+        "description": "Medical-grade protective housing with tamper detection",
+        "componentType": "Hardware",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1
+      },
+      "result": {
+        "id": 9,
+        "isPublic": true,
+        "uuid": "99c9292b-9e5a-43bf-b1cc-7fcd6d9ab746",
+        "title": "Secure Enclosure/Case",
+        "description": "Medical-grade protective housing with tamper detection",
+        "componentType": "Hardware",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:55.8570558Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:55.8570561Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-firmware-widgetmonitor",
+      "name": "Create Component: Device Firmware v2.1 (WidgetMonitor)",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Device Firmware v2.1",
+        "description": "Embedded firmware for WidgetMonitor vital signs monitor",
+        "componentType": "Software",
+        "version": "2.1",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
+      },
+      "result": {
+        "id": 10,
+        "isPublic": true,
+        "uuid": "ff6aea4d-ba99-4e2b-b79e-7735d43491eb",
+        "title": "Device Firmware v2.1",
+        "description": "Embedded firmware for WidgetMonitor vital signs monitor",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:57.0125714Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:57.0125718Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-firmware-glucowidget",
+      "name": "Create Component: Device Firmware v1.8 (GlucoWidget)",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Device Firmware v1.8",
+        "description": "Embedded firmware for GlucoWidget glucose monitor",
+        "componentType": "Software",
+        "version": "1.8",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [1].id}"
+      },
+      "result": {
+        "id": 11,
+        "isPublic": true,
+        "uuid": "f3f1aee9-4539-4825-bd82-4557ed2d9f2a",
+        "title": "Device Firmware v1.8",
+        "description": "Embedded firmware for GlucoWidget glucose monitor",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:57.818709Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:57.8187094Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-firmware-widgetpump",
+      "name": "Create Component: Device Firmware v0.9 (WidgetPump - Beta)",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Device Firmware v0.9 (Beta)",
+        "description": "Embedded firmware for WidgetPump insulin delivery system",
+        "componentType": "Software",
+        "version": "0.9",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [2].id}"
+      },
+      "result": {
+        "id": 12,
+        "isPublic": true,
+        "uuid": "e86916a7-d0eb-4796-aae7-74a1e4f308d6",
+        "title": "Device Firmware v0.9 (Beta)",
+        "description": "Embedded firmware for WidgetPump insulin delivery system",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:24:59.3207973Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:24:59.3207977Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-ios-app",
+      "name": "Create Component: iOS Mobile App v2.3",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "iOS Mobile App v2.3",
+        "description": "GlucoWidget mobile application for iOS devices",
+        "componentType": "Software",
+        "version": "2.3",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [4].id}"
+      },
+      "result": {
+        "id": 13,
+        "isPublic": true,
+        "uuid": "f1a1fd1c-6e4b-494b-ac2e-09e74434428c",
+        "title": "iOS Mobile App v2.3",
+        "description": "GlucoWidget mobile application for iOS devices",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:25:00.0348536Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:25:00.0348538Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-android-app",
+      "name": "Create Component: Android Mobile App v2.3",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Android Mobile App v2.3",
+        "description": "GlucoWidget mobile application for Android devices",
+        "componentType": "Software",
+        "version": "2.3",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [4].id}"
+      },
+      "result": {
+        "id": 14,
+        "isPublic": true,
+        "uuid": "01069022-b682-443a-9ef2-e9a21497d6b6",
+        "title": "Android Mobile App v2.3",
+        "description": "GlucoWidget mobile application for Android devices",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:25:00.5769178Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:25:00.5769181Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-api-gateway",
+      "name": "Create Component: Cloud API Gateway",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Cloud API Gateway",
+        "description": "API gateway for device-to-cloud communication",
+        "componentType": "Software",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
+      },
+      "result": {
+        "id": 15,
+        "isPublic": true,
+        "uuid": "456e1a10-4a80-4b38-beb1-e7ea263acf8a",
+        "title": "Cloud API Gateway",
+        "description": "API gateway for device-to-cloud communication",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:25:01.7104831Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:25:01.7104832Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-patient-database",
+      "name": "Create Component: Patient Data Database",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Patient Data Database",
+        "description": "PostgreSQL database for patient health data storage",
+        "componentType": "Software",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
+      },
+      "result": {
+        "id": 16,
+        "isPublic": true,
+        "uuid": "7b2a6b01-fd7a-4e89-9bde-c40bff1120a4",
+        "title": "Patient Data Database",
+        "description": "PostgreSQL database for patient health data storage",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:25:02.3973127Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:25:02.3973127Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-auth-service",
+      "name": "Create Component: Authentication Service",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Authentication Service",
+        "description": "Identity and access management service for user authentication",
+        "componentType": "Software",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
+      },
+      "result": {
+        "id": 17,
+        "isPublic": true,
+        "uuid": "3aaaafa7-895e-4bd2-9c02-6586382365d3",
+        "title": "Authentication Service",
+        "description": "Identity and access management service for user authentication",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:25:03.696954Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:25:03.6969541Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "component-alert-service",
+      "name": "Create Component: Alert/Notification Service",
+      "method": "POST",
+      "url": "/api/components",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Alert/Notification Service",
+        "description": "Real-time alerting system for critical health events",
+        "componentType": "Software",
+        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "status": "Active",
+        "complianceSettingsId": 1,
+        "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
+      },
+      "result": {
+        "id": 18,
+        "isPublic": true,
+        "uuid": "1d89bdac-3460-4123-b70e-283bbb562cc8",
+        "title": "Alert/Notification Service",
+        "description": "Real-time alerting system for critical health events",
+        "componentType": "Software",
+        "componentOwnerId": "a349f699-94c6-4902-8b2c-d3af8b217907",
+        "complianceSettingsId": 1,
+        "status": "Active",
+        "cmmcExclusion": false,
+        "defaultAssessmentDays": 0,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T03:25:04.1924578Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T03:25:04.1924578Z"
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "catalog-health-widgets",
+      "name": "Create Catalogue: Health Widgets Compliance Controls",
+      "method": "POST",
+      "url": "/api/catalogues",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "title": "Health Widgets Compliance Controls",
+        "description": "Custom security and quality controls for Health Widgets medical device compliance (HIPAA, FDA 21 CFR Part 11, ISO 13485)",
+        "isPublic": true
+      },
+      "result": {
+        "id": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:12:04.051621Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:12:04.0516213Z",
+        "isPublic": true,
+        "uuid": "031b1900-d98f-4a0c-a372-eff866521d3f",
+        "title": "Health Widgets Compliance Controls",
+        "description": "Custom security and quality controls for Health Widgets medical device compliance (HIPAA, FDA 21 CFR Part 11, ISO 13485)",
+        "originator": 0,
+        "master": false,
+        "requireUniqueControlId": false
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "control-encryption-rest",
+      "name": "Create Control: Data Encryption at Rest",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Data Encryption at Rest",
+        "description": "All patient health data stored in databases and file systems is encrypted using AES-256 encryption",
+        "controlId": "SEC-001",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": {
+        "id": 1,
+        "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateCreated": "2025-09-30T04:20:22.5720048Z",
+        "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
+        "dateLastUpdated": "2025-09-30T04:20:22.5720053Z",
+        "isPublic": true,
+        "uuid": "8436dc35-b1fa-49f8-b7f8-c931205c4711",
+        "controlId": "SEC-001",
+        "sortId": "SEC-001",
+        "controlType": "Security",
+        "title": "Data Encryption at Rest",
+        "description": "All patient health data stored in databases and file systems is encrypted using AES-256 encryption",
+        "weight": 0,
+        "catalogueId": 1
+      },
+      "statusCode": 200
+    },
+    {
+      "id": "control-encryption-transit",
+      "name": "Create Control: Data Encryption in Transit (TLS 1.3)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Data Encryption in Transit (TLS 1.3)",
+        "description": "All data transmitted between devices, mobile apps, and cloud services uses TLS 1.3 encryption",
+        "controlId": "SEC-002",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-mfa",
+      "name": "Create Control: User Authentication (Multi-factor)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "User Authentication (Multi-factor)",
+        "description": "Multi-factor authentication required for all administrative and clinical user access",
+        "controlId": "SEC-003",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-rbac",
+      "name": "Create Control: Access Control (Role-based)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Access Control (Role-based)",
+        "description": "Role-based access control (RBAC) enforces least privilege access to patient data and system functions",
+        "controlId": "SEC-004",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-logging",
+      "name": "Create Control: Security Logging and Monitoring",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Security Logging and Monitoring",
+        "description": "Comprehensive logging and real-time monitoring of security events across all systems",
+        "controlId": "SEC-005",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-vuln-scanning",
+      "name": "Create Control: Vulnerability Scanning",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Vulnerability Scanning",
+        "description": "Automated vulnerability scanning performed weekly on all cloud infrastructure and applications",
+        "controlId": "SEC-006",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-secure-boot",
+      "name": "Create Control: Secure Boot (Device firmware)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Secure Boot (Device firmware)",
+        "description": "Medical devices implement secure boot to prevent unauthorized firmware modification",
+        "controlId": "SEC-007",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-code-signing",
+      "name": "Create Control: Code Signing (Software updates)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Code Signing (Software updates)",
+        "description": "All firmware and software updates are digitally signed to ensure authenticity and integrity",
+        "controlId": "SEC-008",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-pentest",
+      "name": "Create Control: Penetration Testing (Annual)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Penetration Testing (Annual)",
+        "description": "Annual third-party penetration testing of cloud platform and mobile applications",
+        "controlId": "SEC-009",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-incident-response",
+      "name": "Create Control: Incident Response Plan",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Incident Response Plan",
+        "description": "Documented incident response procedures for security breaches and system failures",
+        "controlId": "SEC-010",
+        "controlType": "Security",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-design-validation",
+      "name": "Create Control: Design Validation Testing",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Design Validation Testing",
+        "description": "Formal design validation testing ensures devices meet user needs and intended use requirements",
+        "controlId": "QUA-001",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-sterilization",
+      "name": "Create Control: Sterilization Validation",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Sterilization Validation",
+        "description": "Sterilization processes validated to ensure medical-grade cleanliness of device components",
+        "controlId": "QUA-002",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-electrical-safety",
+      "name": "Create Control: Electrical Safety Testing",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Electrical Safety Testing",
+        "description": "IEC 60601-1 electrical safety testing for all medical device hardware",
+        "controlId": "QUA-003",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-emc-emi",
+      "name": "Create Control: EMC/EMI Testing",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "EMC/EMI Testing",
+        "description": "Electromagnetic compatibility and interference testing to ensure device reliability",
+        "controlId": "QUA-004",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-software-validation",
+      "name": "Create Control: Software Validation (IEC 62304)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Software Validation (IEC 62304)",
+        "description": "Medical device software lifecycle processes following IEC 62304 standard",
+        "controlId": "QUA-005",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-usability",
+      "name": "Create Control: Usability Testing",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Usability Testing",
+        "description": "Human factors and usability engineering testing per IEC 62366",
+        "controlId": "QUA-006",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-manufacturing-process",
+      "name": "Create Control: Manufacturing Process Controls",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Manufacturing Process Controls",
+        "description": "Documented manufacturing procedures with in-process quality checks and controls",
+        "controlId": "QUA-007",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-incoming-inspection",
+      "name": "Create Control: Component Incoming Inspection",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Component Incoming Inspection",
+        "description": "Inspection and testing of all incoming components and materials before use",
+        "controlId": "QUA-008",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-calibration",
+      "name": "Create Control: Calibration Management",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Calibration Management",
+        "description": "Regular calibration and maintenance of measurement and test equipment",
+        "controlId": "QUA-009",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
+    },
+    {
+      "id": "control-capa",
+      "name": "Create Control: Corrective/Preventive Action (CAPA)",
+      "method": "POST",
+      "url": "/api/securitycontrols",
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "isPublic": true,
+        "title": "Corrective/Preventive Action (CAPA)",
+        "description": "Systematic process for identifying, investigating, and correcting quality issues",
+        "controlId": "QUA-010",
+        "controlType": "Quality",
+        "catalogueId": "${lookup:/api/catalogues/getList, [0].id}"
+      },
+      "result": null,
+      "statusCode": null
     }
   ]
 }
