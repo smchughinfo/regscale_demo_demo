@@ -3,8 +3,6 @@ import { analyzeControls } from '../services/langchain.js';
 
 interface AnalyzeRequest {
     prompt: string;
-    controlIds?: number[];
-    model?: string;
 }
 
 app.http('analyze', {
@@ -16,7 +14,7 @@ app.http('analyze', {
         try {
             // Parse request body
             const body = await request.json() as AnalyzeRequest;
-            const { prompt, controlIds, model } = body;
+            const { prompt } = body;
 
             // Validate input
             if (!prompt) {
@@ -29,10 +27,10 @@ app.http('analyze', {
                 };
             }
 
-            context.log('Starting analysis...', { controlIds, model });
+            context.log('Starting vulnerability analysis...', { prompt });
 
-            // Run LangChain analysis
-            const result = await analyzeControls(prompt, controlIds, model);
+            // Run LangChain agent analysis with database tools
+            const result = await analyzeControls(prompt);
 
             const duration = (Date.now() - startTime) / 1000;
 
