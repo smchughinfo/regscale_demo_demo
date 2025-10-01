@@ -1,3 +1,5 @@
+# RegScale Demo Demo
+
 This project was written like a hackathon project. The goal was to create some type of deliverable using:
 
 - RegScale
@@ -78,4 +80,6 @@ curl -X POST https://health-widgets-analyzer.azurewebsites.net/api/analyze \
 
 ---
 
-¯\\_(ツ)_/¯
+¯\\_(ツ)_/¯ 
+
+
