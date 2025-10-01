@@ -1,27 +1,17 @@
-# RegScale Demo Demo
+This project was written like a hackathon project. The goal was to create some type of deliverable using:
 
-> **Hackathon-style project.** Built fast, deployed live, works. Repo is not cleaned up. `.gitignore` files are ignored. Organization? What organization.
+- RegScale
+- LangChain
+- MCP
+- As many Azure cloud things as possible
 
-This project demonstrates AI-powered supply chain security analysis using **RegScale**, **LangChain**, **MCP**, and **Azure** services.
-
----
-
-## Tech Stack
-
-- **RegScale GRC** (Azure Kubernetes Service)
-- **LangChain** AI Agent (Azure Functions)
-- **MCP** (Model Context Protocol) via Claude Code
-- **Azure Services:** App Service, Azure Functions, Azure SQL Database, AKS
-- **OpenAI GPT-4o-mini**
-- **ASP.NET Core 8** + **Node.js 20** + **React**
+The repo is not cleaned up. `.gitignores` are ignored. Organization? What organization.
 
 ---
 
-## Components
+### Health Widgets Security Portal (Azure App Service)
 
-### 🌐 Health Widgets Security Portal (Azure App Service)
-
-The primary deliverable - a web frontend for security analysis of components.
+The primary deliverable - a frontend for all the other components.
 
 **URL:** https://healthwidgets-amfzgge8b9f9aweg.centralus-01.azurewebsites.net/
 
@@ -31,9 +21,7 @@ The primary deliverable - a web frontend for security analysis of components.
 
 ---
 
-### 📊 RegScale Installation (Azure Kubernetes Service)
-
-GRC platform deployed on AKS for governance, risk, and compliance management.
+### RegScale Installation (Azure Kubernetes Service)
 
 **URL:** http://4.156.150.217
 **Username:** `seanmchugh1`
@@ -43,9 +31,7 @@ GRC platform deployed on AKS for governance, risk, and compliance management.
 
 ---
 
-### 🔧 Hydrator Tool (Azure App Service)
-
-Tool for systematically populating RegScale with demo data via API calls with dynamic lookups.
+### Hydrator Tool (Azure App Service)
 
 **URL:** https://hydrator-ggctbab8exhcgtgw.westcentralus-01.azurewebsites.net/
 
@@ -55,7 +41,7 @@ Tool for systematically populating RegScale with demo data via API calls with dy
 
 ---
 
-### 🗄️ Database Server (Azure SQL Database)
+### Database Server (Azure SQL Database)
 
 **Server:** `regsale-db-server.database.windows.net`
 **User:** `superuser123`
@@ -71,11 +57,9 @@ Tool for systematically populating RegScale with demo data via API calls with dy
 
 ---
 
-### 🤖 LangChain Component Analyzer (Azure Function App)
+### LangChain Component Analyzer (Azure Function App)
 
-AI-powered vulnerability analysis using LangChain agent with custom tools that query both RegScale API and Azure SQL.
-
-**Usage:**
+**Use:**
 ```bash
 curl -X POST https://health-widgets-analyzer.azurewebsites.net/api/analyze \
     -H "Content-Type: application/json" \
@@ -84,95 +68,14 @@ curl -X POST https://health-widgets-analyzer.azurewebsites.net/api/analyze \
 
 **Source:** [`/DemoAnalyzer`](https://github.com/smchughinfo/regscale_demo_demo/tree/main/DemoAnalyzer)
 
-**Tools:**
-- `get_regscale_components` - Queries RegScale API
-- `get_database_components` - Queries Azure SQL Database
-
 ---
 
-### 🛠️ MCP (Model Context Protocol) via Claude Code
+### MCP (Claude Code)
 
-Custom MCP server with screen capture tools for development assistance.
-
-**Tools:**
-- `list_screens` - Display screen numbers
-- `take_screenshot` - Capture screenshot of specific screen
+**Tools**: list screens, take screenshot (of screen)
 
 **Source:** [`/MCP`](https://github.com/smchughinfo/regscale_demo_demo/tree/main/MCP)
 
 ---
-
-## Architecture
-
-```
-┌─────────────────────────────────────────────────┐
-│  Security Portal (ASP.NET Core)                 │
-│  https://healthwidgets-amfzgge8b9f9aweg...      │
-└─────────────────┬───────────────────────────────┘
-                  │
-                  │ HTTPS POST
-                  ▼
-┌─────────────────────────────────────────────────┐
-│  LangChain Analyzer (Azure Function)            │
-│  GPT-4o-mini + Custom Tools                     │
-└─────────────────┬───────────────────────────────┘
-                  │
-          ┌───────┴────────┐
-          ▼                ▼
-    ┌──────────┐    ┌─────────────┐
-    │ RegScale │    │  Azure SQL  │
-    │   (AKS)  │    │  Database   │
-    └──────────┘    └─────────────┘
-```
-
----
-
-## Project Structure
-
-```
-regscale_demo_demo/
-├── DemoAnalyzer/           # Azure Function (LangChain analyzer)
-├── HealthWidgets/Website/  # ASP.NET Core frontend
-├── Hydrator/               # Data population tool (Node.js + React)
-├── MCP/                    # Model Context Protocol server
-├── Azure/AKS/              # Kubernetes configs for RegScale
-├── Documentation/          # Screenshots and images
-└── SessionMemory/          # Development logs
-```
-
----
-
-## Setup Notes
-
-**Important Files:**
-- **`Azure/notes.md`** - All Azure resources, credentials, endpoints
-- **`Hydrator/HYDRATOR_NOTES.md`** - Lookup conventions and field mappings
-- **`SessionMemory/`** - Chronological development logs
-
-**Quirks:**
-- TypeScript must build on Windows, not WSL (path issues)
-- RegScale bearer tokens expire after 24 hours
-- CORS works in production, may have localhost issues
-
----
-
-## Development
-
-Built through pair programming with Claude (Anthropic). Session memories document the entire development journey.
-
-**Key Technologies:**
-- RegScale API integration
-- LangChain agent with custom tools
-- OpenAI GPT-4o-mini
-- Azure Functions (serverless)
-- Azure Kubernetes Service
-- Azure SQL Database
-- MCP for development tooling
-
----
-
-## Disclaimer
-
-This is a hackathon-style demo. Code is messy. Tests are missing. `.gitignore` files are suggestions. But it works, it's deployed, and it demonstrates the concept.
 
 ¯\\_(ツ)_/¯
