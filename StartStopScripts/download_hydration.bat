@@ -7,10 +7,10 @@ echo ========================================
 echo.
 
 echo Downloading hydration.json from production...
-curl -s https://hydrator-ggctbab8exhcgtgw.westcentralus-01.azurewebsites.net/api/hydration -o hydration.json
+curl -s https://hydrator-ggctbab8exhcgtgw.westcentralus-01.azurewebsites.net/api/hydration -o hydration-backup.json
 
 if %ERRORLEVEL% NEQ 0 (
-    echo ERROR: Failed to download hydration.json
+    echo ERROR: Failed to download hydration-backup.json
     pause
     exit /b 1
 )

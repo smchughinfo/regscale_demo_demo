@@ -10,10 +10,10 @@ echo.
 REM Change to Hydrator directory
 cd /d "%~dp0\..\Hydrator"
 
-echo [1/6] Backing up production hydration.json...
+echo [1/6] Backing up production hydration-backup.json...
 curl -s https://hydrator-ggctbab8exhcgtgw.westcentralus-01.azurewebsites.net/api/hydration -o hydration-backup.json
 if %ERRORLEVEL% NEQ 0 (
-    echo WARNING: Failed to download hydration.json backup. Continuing anyway...
+    echo WARNING: Failed to download hydration-backup.json backup. Continuing anyway...
 ) else (
     echo     Backup saved to hydration-backup.json
 )
@@ -62,16 +62,16 @@ if %ERRORLEVEL% NEQ 0 (
 )
 echo.
 
-echo [7/7] Waiting for app to start and restoring hydration.json...
+echo [7/7] Waiting for app to start and restoring hydration-backup.json...
 echo     Waiting 30 seconds for container to start...
 timeout /t 30 /nobreak >nul
 curl -X PUT https://hydrator-ggctbab8exhcgtgw.westcentralus-01.azurewebsites.net/api/hydration ^
   -H "Content-Type: application/json" ^
   --data-binary "@hydration-backup.json"
 if %ERRORLEVEL% NEQ 0 (
-    echo WARNING: Failed to restore hydration.json. You may need to restore it manually.
+    echo WARNING: Failed to restore hydration-backup.json. You may need to restore it manually.
 ) else (
-    echo     hydration.json restored successfully!
+    echo     hydration-backup.json restored successfully!
 )
 echo.
 
