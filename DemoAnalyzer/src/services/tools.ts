@@ -1,52 +1,30 @@
 import { DynamicStructuredTool } from '@langchain/core/tools';
 import { z } from 'zod';
-import { getAllComponents, getComponentById, searchComponentsByName } from './database.js';
+import { getComponents as getDatabaseComponents } from './database.js';
+import { getComponents as getRegScaleComponents } from './regscale.js';
 
 /**
- * Tool for getting all components from the database
+ * Tool for getting component technical details from SQL database
  */
-export const getAllComponentsTool = new DynamicStructuredTool({
-    name: 'get_all_components',
-    description: 'Retrieve all medical device components from the Health Widgets component database. Use this to get a complete list of hardware and software components that may be affected by a security vulnerability.',
+export const getDatabaseComponentsTool = new DynamicStructuredTool({
+    name: 'get_database_components',
+    description: 'Retrieve detailed technical descriptions of all components from the Health Widgets component database. This returns in-depth technical specifications, known vulnerabilities, version information, dependencies, and implementation details. Use this to analyze technical security implications.',
     schema: z.object({}),
     func: async () => {
-        const components = await getAllComponents();
+        const components = await getDatabaseComponents();
         return JSON.stringify(components, null, 2);
     }
 });
 
 /**
- * Tool for getting a specific component by ID
+ * Tool for getting component inventory from RegScale
  */
-export const getComponentByIdTool = new DynamicStructuredTool({
-    name: 'get_component_by_id',
-    description: 'Retrieve detailed information about a specific component by its ID. Use this when you know the component ID and need its full technical description.',
-    schema: z.object({
-        id: z.number().describe('The numeric ID of the component to retrieve')
-    }),
-    func: async ({ id }) => {
-        const component = await getComponentById(id);
-        if (!component) {
-            return `Component with ID ${id} not found.`;
-        }
-        return JSON.stringify(component, null, 2);
-    }
-});
-
-/**
- * Tool for searching components by name
- */
-export const searchComponentsTool = new DynamicStructuredTool({
-    name: 'search_components',
-    description: 'Search for components by name (case-insensitive partial match). Use this when you need to find components related to specific technologies, manufacturers, or keywords mentioned in a vulnerability report.',
-    schema: z.object({
-        searchTerm: z.string().describe('The search term to match against component names (e.g., "Bluetooth", "firmware", "WiFi")')
-    }),
-    func: async ({ searchTerm }) => {
-        const components = await searchComponentsByName(searchTerm);
-        if (components.length === 0) {
-            return `No components found matching "${searchTerm}".`;
-        }
+export const getRegScaleComponentsTool = new DynamicStructuredTool({
+    name: 'get_regscale_components',
+    description: 'Retrieve the official component inventory from RegScale GRC system. This returns component names, types (hardware/software), and status information. Use this to get the authoritative list of components currently tracked in the compliance system.',
+    schema: z.object({}),
+    func: async () => {
+        const components = await getRegScaleComponents();
         return JSON.stringify(components, null, 2);
     }
 });
@@ -55,7 +33,6 @@ export const searchComponentsTool = new DynamicStructuredTool({
  * Export all tools as an array for easy use with LangChain agents
  */
 export const componentTools = [
-    getAllComponentsTool,
-    getComponentByIdTool,
-    searchComponentsTool
+    getDatabaseComponentsTool,
+    getRegScaleComponentsTool
 ];
