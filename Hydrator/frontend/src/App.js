@@ -26,7 +26,9 @@ const App = () => {
   }, []);
 
   const setupWebSocket = () => {
-    const wsUrl = `ws://${window.location.hostname}:3001`;
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const port = window.location.port || (protocol === 'wss:' ? '443' : '80');
+    const wsUrl = `${protocol}//${window.location.hostname}:${port}`;
     const websocket = new WebSocket(wsUrl);
 
     websocket.onmessage = (event) => {

@@ -26,7 +26,14 @@ async function loadHydrationData() {
   try {
     const data = await fs.readFile(HYDRATION_FILE, 'utf8');
     hydrationData = JSON.parse(data);
-    console.log('Hydration data loaded');
+
+    // Override baseUrl with environment variable if set
+    if (process.env.REGSCALE_URL) {
+      hydrationData.baseUrl = process.env.REGSCALE_URL;
+      console.log(`Hydration data loaded - baseUrl overridden to: ${process.env.REGSCALE_URL}`);
+    } else {
+      console.log(`Hydration data loaded - using baseUrl from file: ${hydrationData.baseUrl}`);
+    }
   } catch (error) {
     console.error('Error loading hydration data:', error);
   }
