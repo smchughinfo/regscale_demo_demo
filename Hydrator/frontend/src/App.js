@@ -176,6 +176,28 @@ const App = () => {
     updateHydrationData(newData);
   };
 
+  const clearCallResults = (callId) => {
+    const newData = {
+      ...hydrationData,
+      calls: hydrationData.calls.map(call =>
+        call.id === callId ? { ...call, result: null, statusCode: null } : call
+      )
+    };
+    setHydrationData(newData);
+    updateHydrationData(newData);
+  };
+
+  const clearAllCreationResults = () => {
+    const newData = {
+      ...hydrationData,
+      calls: hydrationData.calls.map(call =>
+        call.method !== 'GET' ? { ...call, result: null, statusCode: null } : call
+      )
+    };
+    setHydrationData(newData);
+    updateHydrationData(newData);
+  };
+
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100">
@@ -484,16 +506,29 @@ const App = () => {
       {hydrationData?.calls?.filter(call => call.method !== 'GET').length > 0 && (
         <div className="row">
           <div className="col">
-            <div
-              className="d-flex justify-content-between align-items-center mb-3"
-              style={{ cursor: 'pointer' }}
-              onClick={() => toggleSection('creationExpanded')}
-            >
-              <h5 className="mb-0">
-                <i className="bi bi-plus-square me-2"></i>
-                Creation Methods (POST/PUT/PATCH/DELETE)
-              </h5>
-              <i className={`bi bi-chevron-${hydrationData?.uiState?.creationExpanded ? 'up' : 'down'}`}></i>
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <div
+                className="d-flex align-items-center"
+                style={{ cursor: 'pointer' }}
+                onClick={() => toggleSection('creationExpanded')}
+              >
+                <h5 className="mb-0">
+                  <i className="bi bi-plus-square me-2"></i>
+                  Creation Methods (POST/PUT/PATCH/DELETE)
+                </h5>
+                <i className={`bi bi-chevron-${hydrationData?.uiState?.creationExpanded ? 'up' : 'down'} ms-2`}></i>
+              </div>
+              <button
+                className="btn btn-sm btn-outline-secondary"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  clearAllCreationResults();
+                }}
+                title="Clear all creation results"
+              >
+                <i className="bi bi-x-circle me-1"></i>
+                Clear
+              </button>
             </div>
             {hydrationData?.uiState?.creationExpanded && hydrationData.calls
               .map((call, originalIndex) => ({ call, originalIndex }))
@@ -505,6 +540,7 @@ const App = () => {
                   index={originalIndex}
                   onUpdate={updateCall}
                   onExecute={executeCall}
+                  onClear={clearCallResults}
                 />
               ))}
           </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const ApiCallCard = ({ call, index, onUpdate, onExecute }) => {
+const ApiCallCard = ({ call, index, onUpdate, onExecute, onClear }) => {
   const [expanded, setExpanded] = useState(false);
 
   const methodColors = {
@@ -58,6 +58,18 @@ const ApiCallCard = ({ call, index, onUpdate, onExecute }) => {
   };
 
   const formatJson = (obj) => {
+    if (obj === null || obj === undefined) return '';
+    if (typeof obj === 'string') {
+      // If it's already a string, try to parse and re-format it
+      try {
+        const parsed = JSON.parse(obj);
+        return JSON.stringify(parsed, null, 2);
+      } catch (e) {
+        // If it's not valid JSON, return as-is
+        return obj;
+      }
+    }
+    // If it's an object, stringify it
     try {
       return JSON.stringify(obj, null, 2);
     } catch (e) {
@@ -86,6 +98,15 @@ const ApiCallCard = ({ call, index, onUpdate, onExecute }) => {
           )}
         </div>
         <div className="d-flex align-items-center gap-2">
+          {hasResult && onClear && (
+            <button
+              className="btn btn-sm btn-outline-secondary"
+              onClick={(e) => { e.stopPropagation(); onClear(call.id); }}
+              title="Clear results"
+            >
+              <i className="bi bi-x-circle"></i>
+            </button>
+          )}
           <button
             className="btn btn-sm btn-outline-success"
             onClick={(e) => { e.stopPropagation(); onExecute(call.id); }}

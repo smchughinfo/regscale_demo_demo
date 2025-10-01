@@ -434,7 +434,7 @@
         "name": "Engineering Department",
         "description": "Product development and R&D",
         "status": "Active",
-        "parentOrgId": 2
+        "parentOrgId": "${lookup:/api/organizations/getList, [0].id}"
       },
       "result": {
         "id": 0,
@@ -457,7 +457,7 @@
         "name": "Quality Assurance Department",
         "description": "Quality management and regulatory compliance.",
         "status": "Active",
-        "parentOrgId": 2
+        "parentOrgId": "${lookup:/api/organizations/getList, [0].id}"
       },
       "result": {
         "id": 0,
@@ -480,7 +480,7 @@
         "name": "Manufacturing Department",
         "description": "Device production and assembly operations",
         "status": "Active",
-        "parentOrgId": 2
+        "parentOrgId": "${lookup:/api/organizations/getList, [0].id}"
       },
       "result": {
         "id": 0,
