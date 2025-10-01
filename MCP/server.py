@@ -25,9 +25,8 @@ async def list_tools() -> list[Tool]:
     """List available tools"""
     # Get all tool categories
     utility_tools = get_utility_tools()
-    sqlite_tools = get_sqlite_tools()
-    
-    return utility_tools + sqlite_tools
+
+    return utility_tools
 
 
 @server.call_tool()

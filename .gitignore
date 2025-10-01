@@ -23,7 +23,7 @@ wheels/
 MANIFEST
 
 # RegScale persistent data
-persistent_data/
+PersistentData/
 
 # IDE
 .vscode/
