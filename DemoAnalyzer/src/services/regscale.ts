@@ -1,15 +1,23 @@
-const axios = require('axios');
+import axios from 'axios';
 
 const REGSCALE_BASE_URL = process.env.REGSCALE_BASE_URL || 'http://4.156.150.217';
 const BEARER_TOKEN = process.env.REGSCALE_BEARER_TOKEN;
 
+interface RegScaleControl {
+    id: number;
+    [key: string]: any;
+}
+
+interface ControlError {
+    id: number;
+    error: string;
+}
+
 /**
  * Fetch controls from RegScale by IDs
- * @param {number[]} controlIds - Array of control IDs
- * @returns {Promise<Object[]>} Array of control objects
  */
-async function getControls(controlIds) {
-    const controls = [];
+export async function getControls(controlIds: number[]): Promise<(RegScaleControl | ControlError)[]> {
+    const controls: (RegScaleControl | ControlError)[] = [];
 
     for (const id of controlIds) {
         try {
@@ -23,7 +31,7 @@ async function getControls(controlIds) {
                 }
             );
             controls.push(response.data);
-        } catch (error) {
+        } catch (error: any) {
             console.error(`Failed to fetch control ${id}:`, error.message);
             controls.push({ id, error: error.message });
         }
@@ -34,9 +42,8 @@ async function getControls(controlIds) {
 
 /**
  * Get all controls (with pagination)
- * @returns {Promise<Object[]>}
  */
-async function getAllControls() {
+export async function getAllControls(): Promise<RegScaleControl[]> {
     try {
         const response = await axios.get(
             `${REGSCALE_BASE_URL}/api/securitycontrols/getList`,
@@ -48,13 +55,8 @@ async function getAllControls() {
             }
         );
         return response.data;
-    } catch (error) {
+    } catch (error: any) {
         console.error('Failed to fetch controls:', error.message);
         throw error;
     }
 }
-
-module.exports = {
-    getControls,
-    getAllControls
-};

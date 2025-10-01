@@ -1,15 +1,21 @@
-const { app } = require('@azure/functions');
-const { analyzeControls } = require('../services/langchain');
+import { app, HttpRequest, type HttpResponseInit, InvocationContext } from '@azure/functions';
+import { analyzeControls } from '../services/langchain.js';
+
+interface AnalyzeRequest {
+    prompt: string;
+    controlIds?: number[];
+    model?: string;
+}
 
 app.http('analyze', {
     methods: ['POST'],
     authLevel: 'anonymous',
-    handler: async (request, context) => {
+    handler: async (request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> => {
         const startTime = Date.now();
 
         try {
             // Parse request body
-            const body = await request.json();
+            const body = await request.json() as AnalyzeRequest;
             const { prompt, controlIds, model } = body;
 
             // Validate input
@@ -43,7 +49,7 @@ app.http('analyze', {
                 }
             };
 
-        } catch (error) {
+        } catch (error: any) {
             context.error('Analysis failed:', error);
 
             return {

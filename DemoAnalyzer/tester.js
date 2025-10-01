@@ -1,5 +1,5 @@
-const fs = require('fs');
-const { analyzeControls } = require('./src/services/langchain');
+import fs from 'fs';
+import { analyzeControls } from './dist/services/langchain.js';
 
 // Load environment variables from local.settings.json
 const settings = JSON.parse(fs.readFileSync('./local.settings.json', 'utf8'));
