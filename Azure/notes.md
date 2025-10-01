@@ -28,3 +28,60 @@ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9y
 ```
 - User: seanmchugh1
 - Expires: 2025-10-01 (24 hours from issue)
+
+## Hydrator App Service
+
+**App Name:** hydrator
+**Resource Group:** regscale-demo-demo
+**URL:** https://hydrator-gpcfssb3bkh3guec.westcentralus-01.azurewebsites.net
+**Runtime:** Node.js (with React frontend)
+**Purpose:** Custom tool for systematically building RegScale data via API calls with dynamic lookups
+
+## DemoAnalyzer Azure Function
+
+**Function App Name:** health-widgets-analyzer
+**Resource Group:** regscale-demo-demo
+**URL:** https://health-widgets-analyzer.azurewebsites.net/api/analyze
+**Runtime:** Node.js 20
+**Framework:** Azure Functions v4
+**Plan:** Consumption (serverless)
+**Purpose:** LangChain-powered vulnerability analysis tool
+- Analyzes components from RegScale API and Azure SQL
+- Uses GPT-4o-mini for security analysis
+- Returns risk levels and mitigation steps
+
+**Environment Variables:**
+- `OPENAI_API_KEY`
+- `REGSCALE_BASE_URL=http://4.156.150.217`
+- `REGSCALE_BEARER_TOKEN`
+
+**Test Command:**
+```bash
+curl -X POST https://health-widgets-analyzer.azurewebsites.net/api/analyze \
+  -H "Content-Type: application/json" \
+  -d '{"prompt": "vulnerability description"}'
+```
+
+**CORS Configuration:**
+- Configured to allow all origins (`*`) via Azure CLI
+- CORS headers also explicitly set in function code to handle preflight OPTIONS requests
+- Function accepts both POST and OPTIONS methods
+- Headers included: `Access-Control-Allow-Origin`, `Access-Control-Allow-Methods`, `Access-Control-Allow-Headers`
+- Note: CORS works in production deployment but may have issues with localhost development
+
+## HealthWidgets ASP.NET App Service
+
+**App Name:** HealthWidgets
+**Resource Group:** regscale-demo-demo-2
+**URL:** https://healthwidgets-amfzgge8b9f9aweg.centralus-01.azurewebsites.net
+**Runtime:** .NET 8 (LTS)
+**Platform:** Linux
+**Deployment Mode:** Framework-dependent
+**Plan:** Basic B1 (Small, 1.75GB RAM, 100 ACU)
+**Location:** Central US
+**Purpose:** Frontend web application for vulnerability analysis
+
+**Deployment:**
+- Published via Visual Studio 2022 (Zip Deploy method)
+- Publish Profile: `HealthWidgets - Zip Deploy.pubxml`
+- Published successfully on 10/1/2025 at 3:45 AM

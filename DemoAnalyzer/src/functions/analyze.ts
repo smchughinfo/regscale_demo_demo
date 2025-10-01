@@ -7,9 +7,24 @@ interface AnalyzeRequest {
 }
 
 app.http('analyze', {
-    methods: ['POST'],
+    methods: ['POST', 'OPTIONS'],
     authLevel: 'anonymous',
     handler: async (request, context) => {
+        // CORS headers
+        const corsHeaders = {
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Methods': 'POST, OPTIONS',
+            'Access-Control-Allow-Headers': 'Content-Type'
+        };
+
+        // Handle preflight OPTIONS request
+        if (request.method === 'OPTIONS') {
+            return {
+                status: 200,
+                headers: corsHeaders
+            };
+        }
+
         const startTime = Date.now();
 
         try {
@@ -21,6 +36,7 @@ app.http('analyze', {
             if (!prompt) {
                 return {
                     status: 400,
+                    headers: corsHeaders,
                     jsonBody: {
                         success: false,
                         error: 'Missing required field: prompt'
@@ -38,6 +54,7 @@ app.http('analyze', {
             return {
                 status: 200,
                 headers: {
+                    ...corsHeaders,
                     'Content-Type': 'application/json'
                 },
                 jsonBody: {
@@ -52,6 +69,7 @@ app.http('analyze', {
 
             return {
                 status: 500,
+                headers: corsHeaders,
                 jsonBody: {
                     success: false,
                     error: error.message
