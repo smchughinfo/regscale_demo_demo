@@ -1,10 +1,10 @@
 {
-  "bearerToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjpbInNlYW5tY2h1Z2gxIiwic2Vhbm1jaHVnaDEiXSwiaWQiOiIzZGNjYmEwOS1jZjNkLTQzMzQtYjYyMi01MmFlNjVhZGIwNjQiLCJyb2wiOiJhcGlfYWNjZXNzIiwic3ViIjoic2Vhbm1jaHVnaDEiLCJqdGkiOiJiODVhZjVlOS0zZjI3LTQ2OWEtODg4MS03YWJkNGQ4NTM2OTciLCJpYXQiOjE3NTkxMzk1ODQsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiM2RjY2JhMDktY2YzZC00MzM0LWI2MjItNTJhZTY1YWRiMDY0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9wcmltYXJ5Z3JvdXBzaWQiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYXRvciIsIm5iZiI6MTc1OTEzOTU4NCwiZXhwIjoxNzU5MjI1OTg0LCJpc3MiOiJSZWdTY2FsZSIsImF1ZCI6Imh0dHBzOi8vd3d3LnJlZ3NjYWxlLmlvLyJ9.w8TBRKl1e7ayFeLgEzGyluPEqHn1dVvkWrpEBvDh1qM",
+  "bearerToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjpbInNlYW5tY2h1Z2gxIiwic2Vhbm1jaHVnaDEiXSwiaWQiOiIzZGNjYmEwOS1jZjNkLTQzMzQtYjYyMi01MmFlNjVhZGIwNjQiLCJyb2wiOiJhcGlfYWNjZXNzIiwic3ViIjoic2Vhbm1jaHVnaDEiLCJqdGkiOiJlYzM5NmMzMC1jYjJkLTQzZDAtYjlmZS1iM2FlNjY3MmRiMTEiLCJpYXQiOjE3NTkyODkzMjEsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWVpZGVudGlmaWVyIjoiM2RjY2JhMDktY2YzZC00MzM0LWI2MjItNTJhZTY1YWRiMDY0IiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9wcmltYXJ5Z3JvdXBzaWQiOiIxIiwiaHR0cDovL3NjaGVtYXMubWljcm9zb2Z0LmNvbS93cy8yMDA4LzA2L2lkZW50aXR5L2NsYWltcy9yb2xlIjoiQWRtaW5pc3RyYXRvciIsIm5iZiI6MTc1OTI4OTMyMCwiZXhwIjoxNzU5Mzc1NzIwLCJpc3MiOiJSZWdTY2FsZSIsImF1ZCI6Imh0dHBzOi8vd3d3LnJlZ3NjYWxlLmlvLyJ9.aVNskGSS2Xt5KfxZTBM5vvUgy6fIeMK1EItHd2Mkh7w",
   "baseUrl": "http://localhost:5000",
   "uiState": {
-    "entitiesExpanded": true,
-    "utilitiesExpanded": false,
-    "creationExpanded": false,
+    "entitiesExpanded": false,
+    "utilitiesExpanded": true,
+    "creationExpanded": true,
     "graphExpanded": true
   },
   "utilities": [
@@ -41,6 +41,13 @@
         {
           "id": 7,
           "name": "Manufacturing Department",
+          "status": "Active",
+          "manager": "",
+          "parentOrgId": 2
+        },
+        {
+          "id": 8,
+          "name": "Engineering Department",
           "status": "Active",
           "manager": "",
           "parentOrgId": 2
@@ -1060,15 +1067,15 @@
         "description": "Bluetooth Low Energy wireless module used for device communication",
         "componentType": "Hardware",
         "manufacturer": "Texas Instruments",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [1].id}"
       },
       "result": {
-        "id": 1,
+        "id": 19,
         "isPublic": true,
-        "uuid": "06ae6e33-3044-42e6-8186-e8fc3752bb7d",
+        "uuid": "33e45601-0970-461c-8c96-17bc17b910aa",
         "title": "TI CC2640 Bluetooth Module",
         "description": "Bluetooth Low Energy wireless module used for device communication",
         "componentType": "Hardware",
@@ -1078,9 +1085,9 @@
         "cmmcExclusion": false,
         "defaultAssessmentDays": 0,
         "createdById": "3dccba09-cf3d-4334-b622-52ae65adb064",
-        "dateCreated": "2025-09-30T03:22:59.9282207Z",
+        "dateCreated": "2025-10-01T03:31:07.7639585Z",
         "lastUpdatedById": "3dccba09-cf3d-4334-b622-52ae65adb064",
-        "dateLastUpdated": "2025-09-30T03:22:59.9282212Z"
+        "dateLastUpdated": "2025-10-01T03:31:07.7639585Z"
       },
       "statusCode": 200
     },
@@ -1097,7 +1104,7 @@
         "description": "802.11ac WiFi module for network connectivity",
         "componentType": "Hardware",
         "manufacturer": "Qualcomm",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
@@ -1134,7 +1141,7 @@
         "description": "ARM Cortex-M processor used in all medical devices",
         "componentType": "Hardware",
         "manufacturer": "STMicroelectronics",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1
       },
@@ -1170,7 +1177,7 @@
         "description": "Rechargeable battery for portable device power",
         "componentType": "Hardware",
         "manufacturer": "Panasonic",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1
       },
@@ -1206,7 +1213,7 @@
         "description": "Continuous glucose monitoring sensor",
         "componentType": "Hardware",
         "manufacturer": "Sensirion",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [1].id}"
@@ -1243,7 +1250,7 @@
         "description": "Optical heart rate monitoring sensor",
         "componentType": "Hardware",
         "manufacturer": "Sensirion",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
@@ -1280,7 +1287,7 @@
         "description": "Non-invasive blood pressure measurement sensor",
         "componentType": "Hardware",
         "manufacturer": "Sensirion",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
@@ -1316,7 +1323,7 @@
         "title": "LCD Display Module",
         "description": "Color touchscreen display for user interface",
         "componentType": "Hardware",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1
       },
@@ -1351,7 +1358,7 @@
         "title": "Secure Enclosure/Case",
         "description": "Medical-grade protective housing with tamper detection",
         "componentType": "Hardware",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1
       },
@@ -1387,7 +1394,7 @@
         "description": "Embedded firmware for WidgetMonitor vital signs monitor",
         "componentType": "Software",
         "version": "2.1",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [0].id}"
@@ -1424,7 +1431,7 @@
         "description": "Embedded firmware for GlucoWidget glucose monitor",
         "componentType": "Software",
         "version": "1.8",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [1].id}"
@@ -1461,7 +1468,7 @@
         "description": "Embedded firmware for WidgetPump insulin delivery system",
         "componentType": "Software",
         "version": "0.9",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [2].id}"
@@ -1498,7 +1505,7 @@
         "description": "GlucoWidget mobile application for iOS devices",
         "componentType": "Software",
         "version": "2.3",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [4].id}"
@@ -1535,7 +1542,7 @@
         "description": "GlucoWidget mobile application for Android devices",
         "componentType": "Software",
         "version": "2.3",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [4].id}"
@@ -1571,7 +1578,7 @@
         "title": "Cloud API Gateway",
         "description": "API gateway for device-to-cloud communication",
         "componentType": "Software",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
@@ -1607,7 +1614,7 @@
         "title": "Patient Data Database",
         "description": "PostgreSQL database for patient health data storage",
         "componentType": "Software",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
@@ -1643,7 +1650,7 @@
         "title": "Authentication Service",
         "description": "Identity and access management service for user authentication",
         "componentType": "Software",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
@@ -1679,7 +1686,7 @@
         "title": "Alert/Notification Service",
         "description": "Real-time alerting system for critical health events",
         "componentType": "Software",
-        "ownerId": "${lookup:/api/accounts/getList, [3].id}",
+        "componentOwnerId": "${lookup:/api/accounts/getList, [3].id}",
         "status": "Active",
         "complianceSettingsId": 1,
         "securityPlanId": "${lookup:/api/securityplans/getList, [3].id}"
