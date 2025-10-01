@@ -1,5 +1,5 @@
 import { ChatOpenAI } from '@langchain/openai';
-import { AgentExecutor, createOpenAIFunctionsAgent } from 'langchain/agents';
+import { AgentExecutor, createToolCallingAgent } from 'langchain/agents';
 import { ChatPromptTemplate } from '@langchain/core/prompts';
 import { componentTools } from './tools.js';
 
@@ -7,23 +7,16 @@ const modelName = 'gpt-4o-mini';
 
 interface AnalysisResult {
     text: string;
-    tokensUsed: number;
 }
 
 /**
  * Analyze vulnerability impact on Health Widgets components using LangChain agent with database tools
  */
-export async function analyzeControls(vulnerabilityPrompt: string): Promise<AnalysisResult> {
-    const apiKey = process.env.OPENAI_API_KEY;
-    if (!apiKey) {
-        throw new Error('OPENAI_API_KEY environment variable is not set');
-    }
-
-    // Initialize OpenAI model
+export async function analyzeComponents(vulnerabilityPrompt: string): Promise<AnalysisResult> {
     const model = new ChatOpenAI({
         modelName: modelName,
         temperature: 0.7,
-        openAIApiKey: apiKey
+        openAIApiKey: process.env.OPENAI_API_KEY!
     });
 
     // Create agent prompt
@@ -31,20 +24,26 @@ export async function analyzeControls(vulnerabilityPrompt: string): Promise<Anal
         ['system', `You are a medical device security analyst for Health Widgets Inc.
 Your job is to analyze security vulnerabilities and determine which components in our medical device portfolio may be affected.
 
-When analyzing a vulnerability:
-1. Use the available tools to search and retrieve component information from the database
-2. Carefully examine component descriptions for technical details, versions, dependencies, and known issues
-3. Identify which components may be directly or indirectly affected by the vulnerability
-4. Provide a clear assessment with specific component names and risk levels
-5. Suggest mitigation steps if applicable
+You have access to two data sources:
+1. RegScale GRC system - Contains the official inventory of components (names, types, status)
+2. Component database - Contains detailed technical descriptions, specifications, known issues, and dependencies
 
-Be thorough but concise. Focus on actionable intelligence.`],
+When analyzing a vulnerability:
+1. First, retrieve the component inventory from RegScale to see what components exist
+2. Then, retrieve detailed technical information from the component database
+3. Cross-reference both sources to build a complete picture
+4. Carefully examine technical descriptions for versions, dependencies, protocols, and known vulnerabilities
+5. Identify which components are directly or indirectly affected by the reported vulnerability
+6. Provide a clear assessment with specific component names and risk levels (Critical/High/Medium/Low)
+7. Suggest mitigation steps if applicable
+
+Be thorough but concise. Focus on actionable intelligence for the security team.`],
         ['human', '{input}'],
         ['placeholder', '{agent_scratchpad}']
     ]);
 
     // Create agent with tools
-    const agent = await createOpenAIFunctionsAgent({
+    const agent = await createToolCallingAgent({
         llm: model,
         tools: componentTools,
         prompt: prompt
@@ -54,7 +53,9 @@ Be thorough but concise. Focus on actionable intelligence.`],
     const agentExecutor = new AgentExecutor({
         agent: agent,
         tools: componentTools,
-        verbose: true
+        verbose: true,
+        maxIterations: 5,
+        returnIntermediateSteps: false
     });
 
     // Execute analysis
@@ -63,12 +64,7 @@ Be thorough but concise. Focus on actionable intelligence.`],
         input: vulnerabilityPrompt
     });
 
-    // TODO: Token counting is tricky with agents - would need to track across multiple LLM calls
-    // For now, return 0 and we can enhance this later
-    const tokensUsed = 0;
-
     return {
         text: result.output,
-        tokensUsed: tokensUsed
     };
 }

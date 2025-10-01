@@ -1,5 +1,5 @@
 import { app, HttpRequest, type HttpResponseInit, InvocationContext } from '@azure/functions';
-import { analyzeControls } from '../services/langchain.js';
+import { analyzeComponents } from '../services/langchain.js';
 
 interface AnalyzeRequest {
     prompt: string;
@@ -30,7 +30,7 @@ app.http('analyze', {
             context.log('Starting vulnerability analysis...', { prompt });
 
             // Run LangChain agent analysis with database tools
-            const result = await analyzeControls(prompt);
+            const result = await analyzeComponents(prompt);
 
             const duration = (Date.now() - startTime) / 1000;
 
@@ -42,7 +42,6 @@ app.http('analyze', {
                 jsonBody: {
                     success: true,
                     result: result.text,
-                    tokensUsed: result.tokensUsed,
                     duration: duration
                 }
             };
