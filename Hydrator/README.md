@@ -13,6 +13,18 @@ A mini-Postman style tool for systematically building and testing RegScale API w
 
 ## Quick Start
 
+### Production (Azure App Service)
+
+**Live URL:** https://hydrator-ggctbab8exhcgtgw.westcentralus-01.azurewebsites.net
+
+1. Open the URL in your browser
+2. The app is pre-configured to connect to RegScale at `http://4.156.150.217`
+3. Get a bearer token from RegScale (login at http://4.156.150.217)
+4. Paste the token in the token field at the top
+5. Execute API calls to hydrate your RegScale instance
+
+### Local Development
+
 1. **Start the Server**:
    ```bash
    cd Hydrator
@@ -22,8 +34,9 @@ A mini-Postman style tool for systematically building and testing RegScale API w
 2. **Open Web Interface**:
    Navigate to `http://localhost:3001` in your browser
 
-3. **Configure Bearer Token**:
-   Paste your RegScale API bearer token in the token field at the top
+3. **Configure Connection**:
+   - Update `baseUrl` in `hydration.json` to point to your RegScale instance
+   - Paste your RegScale API bearer token in the token field at the top
 
 4. **Execute Calls**:
    - Click individual "Play" buttons to test single calls
@@ -124,11 +137,33 @@ The server provides these endpoints:
 
 Each step builds on the previous ones, creating a complete RegScale tenant setup that can be repeated for different environments.
 
+## Deployment
+
+### Azure App Service (Container Mode)
+
+This app is deployed to Azure App Service using a Docker container.
+
+**Resources:**
+- **App Service:** hydrator (regscale-demo-demo-2 resource group)
+- **Container Registry:** regscaleacr.azurecr.io
+- **Image:** regscaleacr.azurecr.io/hydrator:latest
+
+**To update the deployment:**
+```bash
+cd Hydrator
+docker build -t hydrator:latest .
+docker tag hydrator:latest regscaleacr.azurecr.io/hydrator:latest
+docker push regscaleacr.azurecr.io/hydrator:latest
+az webapp restart --resource-group regscale-demo-demo-2 --name hydrator
+```
+
+See `claude.md` for detailed deployment notes.
+
 ## Troubleshooting
 
-- **Connection Errors**: Verify RegScale API is running on port 5000
+- **Connection Errors**: Verify RegScale API is accessible (http://4.156.150.217 in production)
 - **Authentication Errors**: Check that your bearer token is valid and not expired
-- **File Permission Errors**: Ensure the hydration.json file is writable
+- **File Permission Errors** (local only): Ensure the hydration.json file is writable
 - **WebSocket Issues**: The page will auto-reconnect if the connection drops
 
 ## Next Steps
