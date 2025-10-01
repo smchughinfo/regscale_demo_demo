@@ -1,4 +1,5 @@
-import { app, HttpRequest, type HttpResponseInit, InvocationContext } from '@azure/functions';
+import pkg from '@azure/functions';
+const { app } = pkg;
 import { analyzeComponents } from '../services/langchain.js';
 
 interface AnalyzeRequest {
@@ -8,7 +9,7 @@ interface AnalyzeRequest {
 app.http('analyze', {
     methods: ['POST'],
     authLevel: 'anonymous',
-    handler: async (request: HttpRequest, context: InvocationContext): Promise<HttpResponseInit> => {
+    handler: async (request, context) => {
         const startTime = Date.now();
 
         try {
