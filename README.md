@@ -11,6 +11,10 @@ The repo is not cleaned up. `.gitignores` are ignored. Organization? What organi
 
 ---
 
+*Demo Links are offline. I ran out of Axure free Credits. I can turn the demo back on, on request.*
+
+---
+
 ### Health Widgets Security Portal (Azure App Service)
 
 The primary deliverable - a frontend for all the other components.
