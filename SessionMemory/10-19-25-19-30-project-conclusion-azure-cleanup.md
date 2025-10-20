@@ -3,7 +3,7 @@
 **Topic**: Final Azure resource cleanup, project reflection
 
 ## Context
-User did not get the RegScale position. Company did not review the demo project despite user sending link before final interview. Disappointing outcome given the effort invested, but project served as valuable learning experience.
+User did not get the RegScale position. Company did not review the demo project despite user sending link before interview. Disappointing outcome given the effort invested, but project served as valuable learning experience.
 
 ## Technical Actions Completed
 
